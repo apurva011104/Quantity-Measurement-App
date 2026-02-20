@@ -1,0 +1,14 @@
+.vscode/
+
+*.class
+*.jar
+*.log
+
+.DS_Store
+*.iml
+
+.idea/
+bin/
+out/
+build/
+dist/
