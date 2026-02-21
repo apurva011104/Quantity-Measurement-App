@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.apps.quantitymeasurement.QuantityMeasurementApp.Feet;
+import com.apps.quantitymeasurement.QuantityMeasurementApp.Inches;
 
 public class QuantityMeasurementAppTest {
     
@@ -49,6 +50,41 @@ public class QuantityMeasurementAppTest {
         Feet feet1 = new Feet(12.0);
 
         assertTrue(feet1.equals(feet1));
+
+    }
+
+    @Test
+    public void testInchesEquality_DifferentValue(){
+        Inches inches1 = new Inches(12.0);
+        Inches inches2 = new Inches(13.0);
+
+        assertFalse(inches1.equals(inches2));
+
+    }
+
+    @Test
+    public void testInchesEquality_NullComparison(){
+        Inches inches1 = new Inches(12.0);
+        Inches inches2 = null;
+
+        assertFalse(inches1.equals(inches2));
+
+    }
+
+    @Test
+    public void testInchesEquality_DifferentClass(){
+        Inches inches = new Inches(12.0);
+        Feet feet = new Feet(12.0);
+
+        assertFalse(inches.equals(feet));
+
+    }
+
+    @Test
+    public void testInchesEquality_SameReference(){
+        Inches inches = new Inches(12.0);
+        
+        assertTrue(inches.equals(inches));
 
     }
 }
