@@ -1,6 +1,5 @@
 package com.apps.quantitymeasurement;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(3.0, LengthUnit.FEET);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -29,7 +28,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(3.0, LengthUnit.INCHES);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -40,7 +39,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(3.0, LengthUnit.YARDS);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -51,7 +50,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(3.0, LengthUnit.CENTIMETERS);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -62,7 +61,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(2.0, LengthUnit.FEET);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -73,7 +72,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(24.0, LengthUnit.INCHES);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -84,7 +83,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(6.0, LengthUnit.FEET);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -95,7 +94,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(2.0, LengthUnit.YARDS);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -106,7 +105,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(2.0, LengthUnit.FEET);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -117,7 +116,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(60.96, LengthUnit.CENTIMETERS);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -128,7 +127,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(72.0, LengthUnit.INCHES);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -139,7 +138,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(2.0, LengthUnit.YARDS);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -150,7 +149,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(2.0, LengthUnit.INCHES);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -161,7 +160,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(5.08, LengthUnit.CENTIMETERS);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -172,7 +171,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(2.0, LengthUnit.YARDS);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -183,7 +182,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(182.88, LengthUnit.CENTIMETERS);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -207,7 +206,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(5.0, LengthUnit.FEET);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -218,7 +217,7 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(2.0, LengthUnit.FEET);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
@@ -237,17 +236,17 @@ public class QuantityMeasurementAppTest {
 
         Length expected = new Length(3e6, LengthUnit.FEET);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 
     @Test
     public void testAddition_SmallValues(){
-        Length length1 = new Length(0.01, LengthUnit.FEET);
-        Length length2 = new Length(0.02, LengthUnit.FEET);
+        Length length1 = new Length(0.001, LengthUnit.FEET);
+        Length length2 = new Length(0.002, LengthUnit.FEET);
         Length sum = length1.add(length2);
 
-        Length expected = new Length(0.03, LengthUnit.FEET);
+        Length expected = new Length(0.003, LengthUnit.FEET);
 
-        assertEquals(expected, sum);
+        assertTrue(sum.equals(expected));
     }
 }

@@ -75,7 +75,7 @@ public class QuantityMeasurementApp {
         SCANNER.nextLine();
         System.out.println("Enter value2 length unit type (feet, inches, yards or cms): ");
         LengthUnit lengthUnit2 = takeUnitInput();
-
+        
         Length sumOfLengths = demonstrateLengthAddition(value1, lengthUnit1, value2, lengthUnit2);
         System.out.println(sumOfLengths);
         

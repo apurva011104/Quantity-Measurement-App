@@ -64,7 +64,7 @@ public class Length {
                 throw new IllegalArgumentException("Invalid unit");
         }
 
-        return Math.round(value * conversionFactor * 100.0) / 100.0;
+        return value * conversionFactor;
     }
 
     private double convertFromBaseToTargetUnit(double lengthInInches, LengthUnit targetUnit){
@@ -72,8 +72,8 @@ public class Length {
     }
 
     public boolean compare(Length thatLength){
-        double thatLengthValue = thatLength.convertToBaseUnit();
-        double thisLengthValue = this.convertToBaseUnit();
+        double thatLengthValue = Math.round(thatLength.convertToBaseUnit() * 1000.0) /1000.0;
+        double thisLengthValue =  Math.round(this.convertToBaseUnit() * 1000.0) /1000.0;
 
         return Double.compare(thisLengthValue, thatLengthValue)==0;
     }
@@ -93,7 +93,6 @@ public class Length {
         }
         double valueInBaseUnit = convertToBaseUnit();
         double valueInTargetUnit = convertFromBaseToTargetUnit(valueInBaseUnit, targetUnit);
-        valueInTargetUnit = Math.round(valueInTargetUnit * 100.0) / 100.0;
         return new Length(valueInTargetUnit, targetUnit);
     }
 
@@ -109,6 +108,7 @@ public class Length {
 
         return new Length(lengthInThisUnit, unit);
     }
+
 
     @Override
     public String toString() {
