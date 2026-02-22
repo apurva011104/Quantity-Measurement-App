@@ -1,9 +1,13 @@
 package com.apps.quantitymeasurement;
 
+import com.apps.quantitymeasurement.Length.LengthUnit;
+
 public class Length {
     public enum LengthUnit{
         FEET(12.0),
-        INCHES(1.0);
+        INCHES(1.0),
+        YARDS(36.0),
+        CENTIMETERS(0.393701);
 
         private final double conversionFactor;
 
@@ -37,17 +41,28 @@ public class Length {
     }
 
     private double convertToBaseUnit(){
-        if(unit!=LengthUnit.INCHES){
-            return value * LengthUnit.FEET.conversionFactor;
+        double conversionFactor;
+        if(unit==LengthUnit.FEET){
+            conversionFactor =  LengthUnit.FEET.conversionFactor;
         }
-        return value;
+        else if(unit==LengthUnit.YARDS){
+            conversionFactor =  LengthUnit.YARDS.conversionFactor;
+        }
+        else if(unit==LengthUnit.CENTIMETERS){
+            conversionFactor =  LengthUnit.CENTIMETERS.conversionFactor;
+        }
+        else{
+            conversionFactor =  LengthUnit.INCHES.conversionFactor;
+        }
+    
+        return Math.round(value * conversionFactor * 100.0) / 100.0;
     }
 
     public boolean compare(Length thatLength){
         double thatLengthValue = thatLength.convertToBaseUnit();
         double thisLengthValue = this.convertToBaseUnit();
 
-        return thisLengthValue == thatLengthValue;
+        return Double.compare(thisLengthValue, thatLengthValue)==0;
     }
 
     @Override
@@ -56,13 +71,7 @@ public class Length {
             return false;
         }
         Length anotherObj = (Length)obj;
-
         return compare(anotherObj);
     }
 
-    public static void main(String[] args) {
-        Length length1 = new Length(12.0, LengthUnit.FEET);
-        Length length2 = new Length(144.0, LengthUnit.INCHES);
-        System.out.println("Are lengths equal? " + length1.equals(length2));
-    }
 }
