@@ -56,17 +56,28 @@ public class QuantityMeasurementApp {
         return length.convertTo(targetUnit);
     }
 
-    public static void main(String[] args) {
-        System.out.println("Enter value: ");
-        double value = SCANNER.nextDouble();
-        SCANNER.nextLine();
-        System.out.println("Enter source unit (feet, inches, yards or cms): ");
-        LengthUnit sourceUnit = takeUnitInput();
-        System.out.println("Enter target unit (feet, inches, yards or cms): ");
-        LengthUnit targetUnit = takeUnitInput();
+    public static Length demonstrateLengthAddition(double value1, LengthUnit lengthUnit1 , double value2, LengthUnit lengthUnit2){
+        Length length1 = new Length(value1, lengthUnit1);
+        Length length2 = new Length(value2, lengthUnit2);
 
-        Length convertedLength = demonstrateLengthConversion(value, sourceUnit, targetUnit);
-        System.out.printf("%.2f %n", convertedLength.getValue());
+        return length1.add(length2);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Enter value1: ");
+        double value1 = SCANNER.nextDouble();
+        SCANNER.nextLine();
+        System.out.println("Enter value1 length unit type (feet, inches, yards or cms): ");
+        LengthUnit lengthUnit1 = takeUnitInput();
+
+        System.out.println("Enter value2: ");
+        double value2 = SCANNER.nextDouble();
+        SCANNER.nextLine();
+        System.out.println("Enter value2 length unit type (feet, inches, yards or cms): ");
+        LengthUnit lengthUnit2 = takeUnitInput();
+
+        Length sumOfLengths = demonstrateLengthAddition(value1, lengthUnit1, value2, lengthUnit2);
+        System.out.println(sumOfLengths);
         
     }
 }

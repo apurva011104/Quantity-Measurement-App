@@ -1,5 +1,7 @@
 package com.apps.quantitymeasurement;
 
+import com.apps.quantitymeasurement.Length.LengthUnit;
+
 public class Length {
 
     public enum LengthUnit{
@@ -43,21 +45,30 @@ public class Length {
     }
 
     private double convertToBaseUnit(){
+
         double conversionFactor;
-        if(unit==LengthUnit.FEET){
-            conversionFactor =  LengthUnit.FEET.conversionFactor;
+        switch(unit){
+            case FEET:
+                conversionFactor =  LengthUnit.FEET.conversionFactor;
+                break;
+            case YARDS:
+                conversionFactor =  LengthUnit.YARDS.conversionFactor;
+                break;
+            case CENTIMETERS:
+                conversionFactor =  LengthUnit.CENTIMETERS.conversionFactor;
+                break;
+            case INCHES:
+                conversionFactor =  LengthUnit.INCHES.conversionFactor;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid unit");
         }
-        else if(unit==LengthUnit.YARDS){
-            conversionFactor =  LengthUnit.YARDS.conversionFactor;
-        }
-        else if(unit==LengthUnit.CENTIMETERS){
-            conversionFactor =  LengthUnit.CENTIMETERS.conversionFactor;
-        }
-        else{
-            conversionFactor =  LengthUnit.INCHES.conversionFactor;
-        }
-    
+
         return Math.round(value * conversionFactor * 100.0) / 100.0;
+    }
+
+    private double convertFromBaseToTargetUnit(double lengthInInches, LengthUnit targetUnit){
+        return lengthInInches / targetUnit.conversionFactor ;
     }
 
     public boolean compare(Length thatLength){
@@ -81,10 +92,22 @@ public class Length {
             throw new IllegalArgumentException("Target unit cannot be null.");
         }
         double valueInBaseUnit = convertToBaseUnit();
-        double targetUnitConversionFactor = targetUnit.conversionFactor;
-        double valueInTargetUnit = valueInBaseUnit / targetUnitConversionFactor;
+        double valueInTargetUnit = convertFromBaseToTargetUnit(valueInBaseUnit, targetUnit);
         valueInTargetUnit = Math.round(valueInTargetUnit * 100.0) / 100.0;
         return new Length(valueInTargetUnit, targetUnit);
+    }
+
+    public Length add(Length thatLength){
+        if(thatLength==null){
+            throw new IllegalArgumentException("Cannot be added to null");
+        }
+        double thisLengthInInches = convertToBaseUnit();
+        double thatLengthInInches = thatLength.convertToBaseUnit();
+
+        double sum = thisLengthInInches + thatLengthInInches;
+        double lengthInThisUnit = convertFromBaseToTargetUnit(sum, unit);
+
+        return new Length(lengthInThisUnit, unit);
     }
 
     @Override
