@@ -71,9 +71,16 @@ public class Length {
         return lengthInInches / targetUnit.conversionFactor ;
     }
 
+    private Length addAndConvert(Length thatLength, LengthUnit targetUnit){
+        double sumInBaseUnit = add(thatLength).convertToBaseUnit();
+        double sumInTargetUnit = convertFromBaseToTargetUnit(sumInBaseUnit, targetUnit);
+
+        return new Length(sumInTargetUnit, targetUnit);
+    }
+
     public boolean compare(Length thatLength){
-        double thatLengthValue = Math.round(thatLength.convertToBaseUnit() * 1000.0) /1000.0;
-        double thisLengthValue =  Math.round(this.convertToBaseUnit() * 1000.0) /1000.0;
+        double thatLengthValue = Math.round(thatLength.convertToBaseUnit() * 100.0) /100.0;
+        double thisLengthValue =  Math.round(this.convertToBaseUnit() * 100.0) /100.0;
 
         return Double.compare(thisLengthValue, thatLengthValue)==0;
     }
@@ -109,6 +116,15 @@ public class Length {
         return new Length(lengthInThisUnit, unit);
     }
 
+    public Length add(Length thatLength, LengthUnit targetUnit){
+        if(thatLength == null){
+            throw new IllegalArgumentException("Cannot be added to null");
+        }
+        if(targetUnit==null){
+            throw new IllegalArgumentException("Invalid target unit");
+        }
+        return addAndConvert(thatLength, targetUnit);
+    }
 
     @Override
     public String toString() {

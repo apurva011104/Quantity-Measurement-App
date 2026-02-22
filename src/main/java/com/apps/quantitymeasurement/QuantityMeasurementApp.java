@@ -63,6 +63,13 @@ public class QuantityMeasurementApp {
         return length1.add(length2);
     }
 
+    public static Length demonstrateLengthAddition(double value1, LengthUnit lengthUnit1 , double value2, LengthUnit lengthUnit2, LengthUnit targetUnit){
+        Length length1 = new Length(value1, lengthUnit1);
+        Length length2 = new Length(value2, lengthUnit2);
+
+        return length1.add(length2,targetUnit);
+    }
+
     public static void main(String[] args) {
         System.out.println("Enter value1: ");
         double value1 = SCANNER.nextDouble();
@@ -75,8 +82,11 @@ public class QuantityMeasurementApp {
         SCANNER.nextLine();
         System.out.println("Enter value2 length unit type (feet, inches, yards or cms): ");
         LengthUnit lengthUnit2 = takeUnitInput();
-        
-        Length sumOfLengths = demonstrateLengthAddition(value1, lengthUnit1, value2, lengthUnit2);
+
+        System.out.println("Enter target length unit type (feet, inches, yards or cms): ");
+        LengthUnit targetUnit = takeUnitInput();
+
+        Length sumOfLengths = demonstrateLengthAddition(value1, lengthUnit1, value2, lengthUnit2, targetUnit);
         System.out.println(sumOfLengths);
         
     }
