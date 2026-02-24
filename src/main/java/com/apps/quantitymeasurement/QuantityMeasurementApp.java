@@ -2,8 +2,6 @@ package com.apps.quantitymeasurement;
 
 import java.util.Scanner;
 
-import com.apps.quantitymeasurement.Length.LengthUnit;
-
 public class QuantityMeasurementApp {
 
     private static final Scanner SCANNER = new Scanner(System.in);
@@ -45,7 +43,7 @@ public class QuantityMeasurementApp {
         Length length1 = new Length(value1, lengthUnit1);
         Length length2 = new Length(value2, lengthUnit2);
 
-        System.out.println("Are lengths equal?: "+ demonstrateLengthEquality(length1, length2));
+        System.out.println("Are "+ length1 +" and " + length2 + " equal?: "+ demonstrateLengthEquality(length1, length2));
     }
 
     public static Length demonstrateLengthConversion(double value, LengthUnit sourceUnit, LengthUnit targetUnit){
@@ -71,23 +69,10 @@ public class QuantityMeasurementApp {
     }
 
     public static void main(String[] args) {
-        System.out.println("Enter value1: ");
-        double value1 = SCANNER.nextDouble();
-        SCANNER.nextLine();
-        System.out.println("Enter value1 length unit type (feet, inches, yards or cms): ");
-        LengthUnit lengthUnit1 = takeUnitInput();
 
-        System.out.println("Enter value2: ");
-        double value2 = SCANNER.nextDouble();
-        SCANNER.nextLine();
-        System.out.println("Enter value2 length unit type (feet, inches, yards or cms): ");
-        LengthUnit lengthUnit2 = takeUnitInput();
+        System.out.println("12.0 feet = " + LengthUnit.FEET.convertToBaseUnit(12.0)+ " inches");
 
-        System.out.println("Enter target length unit type (feet, inches, yards or cms): ");
-        LengthUnit targetUnit = takeUnitInput();
-
-        Length sumOfLengths = demonstrateLengthAddition(value1, lengthUnit1, value2, lengthUnit2, targetUnit);
-        System.out.println(sumOfLengths);
+        System.out.println("72.0 inches = " + LengthUnit.YARDS.convertFromBaseUnit(72.0)+ " yards");
         
     }
 }

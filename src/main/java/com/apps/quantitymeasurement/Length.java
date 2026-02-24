@@ -1,26 +1,6 @@
 package com.apps.quantitymeasurement;
 
-import com.apps.quantitymeasurement.Length.LengthUnit;
-
 public class Length {
-
-    public enum LengthUnit{
-        FEET(12.0),
-        INCHES(1.0),
-        YARDS(36.0),
-        CENTIMETERS(0.393701);
-
-        private final double conversionFactor;
-
-        private LengthUnit(double conversionFactor) {
-            this.conversionFactor = conversionFactor;
-        }
-
-        public double getConversionFactor() {
-            return conversionFactor;
-        }
-
-    }
 
     private final double value;
     private final LengthUnit unit;
@@ -45,30 +25,11 @@ public class Length {
     }
 
     private double convertToBaseUnit(){
-
-        double conversionFactor;
-        switch(unit){
-            case FEET:
-                conversionFactor =  LengthUnit.FEET.conversionFactor;
-                break;
-            case YARDS:
-                conversionFactor =  LengthUnit.YARDS.conversionFactor;
-                break;
-            case CENTIMETERS:
-                conversionFactor =  LengthUnit.CENTIMETERS.conversionFactor;
-                break;
-            case INCHES:
-                conversionFactor =  LengthUnit.INCHES.conversionFactor;
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid unit");
-        }
-
-        return value * conversionFactor;
+        return unit.convertToBaseUnit(value);
     }
 
     private double convertFromBaseToTargetUnit(double lengthInInches, LengthUnit targetUnit){
-        return lengthInInches / targetUnit.conversionFactor ;
+        return targetUnit.convertFromBaseUnit(lengthInInches);
     }
 
     private Length addAndConvert(Length thatLength, LengthUnit targetUnit){
