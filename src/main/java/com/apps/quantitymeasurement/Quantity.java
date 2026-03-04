@@ -76,6 +76,44 @@ public class Quantity <U extends IMeasurable> {
         return new Quantity<>(sum, targetUnit);
     }
 
+    public Quantity<U> subtract(Quantity<U> other){
+        if(other == null || other.unit.getClass() != this.unit.getClass()){
+            throw new IllegalArgumentException("Invalid subtraction quantity");
+        }
+        Quantity<U> quantity = other.convertTo(this.unit);
+        double subtract = value - quantity.value;
+
+        return new Quantity<>(subtract, this.unit);
+    }
+    
+    public Quantity<U> subtract(Quantity<U> other, U targetUnit){
+        if(other == null || other.unit.getClass() != this.unit.getClass()){
+            throw new IllegalArgumentException("Invalid subtraction quantity");
+        }
+        if(targetUnit == null || targetUnit.getClass() != this.unit.getClass()){
+            throw new IllegalArgumentException("Invalid target unit");
+        }
+        Quantity<U> otherTarget = other.convertTo(targetUnit);
+        Quantity<U> thisTarget = this.convertTo(targetUnit);
+        double subtract = thisTarget.value - otherTarget.value;
+
+        return new Quantity<>(subtract, targetUnit);
+    }
+
+    public double divide(Quantity<U> other){
+        if(other == null || other.unit.getClass() != this.unit.getClass()){
+            throw new IllegalArgumentException("Invalid addition quantity");
+        }
+        if(other.value==0.0){
+            throw new ArithmeticException("Cannot be divided by zero");
+        }
+        double thisBaseValue = this.unit.convertToBaseUnit(this.value);
+        double otherBaseValue = other.unit.convertToBaseUnit(other.value);
+
+        return thisBaseValue/otherBaseValue;
+    }
+    
+
     @Override
     public String toString() {
         return String.format("%.2f %s", value, unit.toString().toLowerCase());
