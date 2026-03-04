@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.137" tests="33" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.095" tests="23" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-20\bin"/>
-    <property name="sun.java.command" value="C:\Users\apurv\AppData\Local\Temp\surefire6202825130844014216\surefirebooter-20260304165729696_3.jar C:\Users\apurv\AppData\Local\Temp\surefire6202825130844014216 2026-03-04T16-57-29_487-jvmRun1 surefire-20260304165729696_1tmp surefire_0-20260304165729696_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\apurv\AppData\Local\Temp\surefire11077903997248867811\surefirebooter-20260304175227212_3.jar C:\Users\apurv\AppData\Local\Temp\surefire11077903997248867811 2026-03-04T17-52-27_009-jvmRun1 surefire-20260304175227212_1tmp surefire_0-20260304175227212_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="com.apps.quantitymeasurement.QuantityMeasurementAppTest"/>
     <property name="surefire.test.class.path" value="C:\Users\apurv\OneDrive\Documents\Capgemini Training\quantity_measurement_app\target\test-classes;C:\Users\apurv\OneDrive\Documents\Capgemini Training\quantity_measurement_app\target\classes;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\apurv\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\apurv\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\apurv\AppData\Local\Temp\surefire6202825130844014216\surefirebooter-20260304165729696_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\apurv\AppData\Local\Temp\surefire11077903997248867811\surefirebooter-20260304175227212_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="20.0.1+9-29"/>
@@ -59,37 +59,27 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="64.0"/>
   </properties>
-  <testcase name="testGenericQuantity_WeightOperations_Conversion" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.036"/>
-  <testcase name="testIMeasurableInterface_WeightUnitImplementation_ConvertFromBaseUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_LengthAdditionWithNullTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.005"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_LengthAddition" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_WeightConversion_NullTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testGenericQuantity_ConstructorValidation_NullUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testGenericQuantity_LengthOperations_Conversion" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_WeightAdditionWithNull" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_WeightAdditionWithNullTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testGenericQuantity_LengthOperations_Equality" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testGenericQuantity_WeightOperations_Addition" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testIMeasurableInterface_WeightUnitImplementation_GetConversionFactor" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_LengthAdditionWithNull" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testIMeasurableInterface_LengthUnitImplementation_ConvertFromBaseUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_LengthEquality" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_WeightEquality" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_WeightAdditionTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testGenericQuantity_VolumeOperations_AdditionTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.028"/>
+  <testcase name="testGenericQuantity_VolumeOperations_Equality" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testGenericQuantity_VolumeOperations_Conversion_TargetNullUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
+  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_LengthAdditionWithNullTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testIMeasurableInterface_VolumeUnitImplementation_ConvertToBaseUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_VolumeAdditionWithNullTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_VolumeEquality_NullQuantity" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_VolumeAdditionTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_VolumeAdditionWithNull" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_VolumeEquality" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testIMeasurableInterface_VolumeUnitImplementation_GetConversionFactor" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testGenericQuantity_VolumeOperations_EqualityWithNull" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testGenericQuantity_VolumeOperations_AdditionWithNullTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testCrossCategoryPrevention_VolumeVsWeight_Equality" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_VolumeConversion" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testGenericQuantity_VolumeOperations_Addition" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
   <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_LengthAdditionTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_LengthConversion_NullTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testCrossCategoryPrevention_LengthVsWeight_Equality" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testGenericQuantity_LengthOperations_AdditionTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testGenericQuantity_WeightOperations_AdditionTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_WeightConversion" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_LengthEquality_NullQuantity" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testGenericQuantity_ConstructorValidation_InvalidValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testGenericQuantity_WeightOperations_Equality" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_NullQuantity" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testIMeasurableInterface_WeightUnitImplementation_ConvertToBaseUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testIMeasurableInterface_LengthUnitImplementation_ConvertToBaseUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testIMeasurableInterface_LengthUnitImplementation_GetConversionFactor" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_LengthConversion" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_WeightAdddition" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testGenericQuantity_LengthOperations_Addition" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testGenericQuantity_VolumeOperations_Conversion" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_VolumeConversion_NullTargetUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testCrossCategoryPrevention_VolumeVsLength_Equality" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testGenericQuantity_VolumeOperations_AdditionWithNull" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testQuantityMeasurementApp_SimplifiedDemonstration_VolumeAddition" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testIMeasurableInterface_VolumeUnitImplementation_ConvertFromBaseUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
 </testsuite>

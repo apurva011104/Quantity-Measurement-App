@@ -20,23 +20,13 @@ public class QuantityMeasurementApp {
 
     public static void main(String[] args) {
         
-        Quantity<LengthUnit> length1 = new Quantity<>(15.0, LengthUnit.YARDS);
-        Quantity<LengthUnit> length2 = new Quantity<>(45.0, LengthUnit.FEET);
+        Quantity<VolumeUnit> volume1 = new Quantity<>(15.0, VolumeUnit.LITRE);
+        Quantity<VolumeUnit> volume2 = new Quantity<>(15000.0, VolumeUnit.MILLILITRE);
 
-        System.out.println("Is " + length1 +" equals to " + length2 + "? " + demonstrateEquality(length1, length2));
-        System.out.println(length1 + " = " + demonstrateConversion(length1, LengthUnit.FEET));
-        System.out.println(length1 + " + " + length2 + " = " + demonstrateAddition(length1, length2));
-        System.out.println(length1 + " + " + length2 + " = " + demonstrateAddition(length1, length2, LengthUnit.INCHES));
-
-        Quantity<WeightUnit> weight1 = new Quantity<>(1500.0, WeightUnit.GRAMS);
-        Quantity<WeightUnit> weight2 = new Quantity<>(1.5, WeightUnit.KILOGRAMS);
-
-        System.out.println("Is " + weight1 +" equals to " + weight2 + "? " + demonstrateEquality(weight1, weight2));
-        System.out.println(weight1 + " = " + demonstrateConversion(weight1, WeightUnit.POUNDS));
-        System.out.println(weight1 + " + " + weight2 + " = " + demonstrateAddition(weight1, weight2));
-        System.out.println(weight1 + " + " + weight2 + " = " + demonstrateAddition(weight1, weight2, WeightUnit.POUNDS));
-
-
+        System.out.println("Is " + volume1 +" equals to " + volume2 + "? " + demonstrateEquality(volume1, volume2));
+        System.out.println(volume1 + " = " + demonstrateConversion(volume1, VolumeUnit.GALLON));
+        System.out.println(volume1 + " + " + volume2 + " = " + demonstrateAddition(volume1, volume2));
+        System.out.println(volume1 + " + " + volume2 + " = " + demonstrateAddition(volume1, volume2, VolumeUnit.GALLON));
 
     }
 }
