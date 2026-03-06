@@ -24,6 +24,37 @@ public class Quantity <U extends IMeasurable> {
         return unit;
     }
 
+    protected enum ArithmeticOperation{
+        ADD{
+            @Override
+            public double compute(double thisBaseValue, double thatBaseValue){
+                return  thisBaseValue + thatBaseValue;
+            }
+        },
+        SUBTRACT{
+            @Override
+            public double compute(double thisBaseValue, double thatBaseValue){
+                return  thisBaseValue - thatBaseValue;
+            }
+        },
+        DIVIDE{
+            @Override
+            public double compute(double thisBaseValue, double thatBaseValue){
+                if(thatBaseValue == 0.0){
+                    throw new ArithmeticException("Cannot be divided by 0");
+                }
+                return  thisBaseValue / thatBaseValue;
+            }
+        };
+
+        public abstract double compute(double thisBaseValue, double thatBaseValue);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%.2f %s", value, unit.toString().toLowerCase());
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(obj==null || obj.getClass()!=this.getClass()){
@@ -53,70 +84,59 @@ public class Quantity <U extends IMeasurable> {
     }
 
     public Quantity<U> add(Quantity<U> other){
-        if(other == null || other.unit.getClass() != this.unit.getClass()){
-            throw new IllegalArgumentException("Invalid addition quantity");
-        }
-        Quantity<U> quantity = other.convertTo(this.unit);
-        double sum = value + quantity.value;
+        validateArithmeticOperands(other);
+        double sum = performArithmeticOperation(other, this.unit, ArithmeticOperation.ADD);
 
         return new Quantity<>(sum, this.unit);
     }
     
     public Quantity<U> add(Quantity<U> other, U targetUnit){
-        if(other == null || other.unit.getClass() != this.unit.getClass()){
-            throw new IllegalArgumentException("Invalid addition quantity");
-        }
-        if(targetUnit == null || targetUnit.getClass() != this.unit.getClass()){
-            throw new IllegalArgumentException("Invalid target unit");
-        }
-        Quantity<U> otherTarget = other.convertTo(targetUnit);
-        Quantity<U> thisTarget = this.convertTo(targetUnit);
-        double sum = thisTarget.value + otherTarget.value;
-
+        validateArithmeticOperands(other, targetUnit);
+        double sum = performArithmeticOperation(other, targetUnit, ArithmeticOperation.ADD);
         return new Quantity<>(sum, targetUnit);
     }
 
     public Quantity<U> subtract(Quantity<U> other){
-        if(other == null || other.unit.getClass() != this.unit.getClass()){
-            throw new IllegalArgumentException("Invalid subtraction quantity");
-        }
-        Quantity<U> quantity = other.convertTo(this.unit);
-        double subtract = value - quantity.value;
-
+        validateArithmeticOperands(other);
+        double subtract = performArithmeticOperation(other, this.unit, ArithmeticOperation.SUBTRACT);
         return new Quantity<>(subtract, this.unit);
     }
     
     public Quantity<U> subtract(Quantity<U> other, U targetUnit){
-        if(other == null || other.unit.getClass() != this.unit.getClass()){
-            throw new IllegalArgumentException("Invalid subtraction quantity");
-        }
-        if(targetUnit == null || targetUnit.getClass() != this.unit.getClass()){
-            throw new IllegalArgumentException("Invalid target unit");
-        }
-        Quantity<U> otherTarget = other.convertTo(targetUnit);
-        Quantity<U> thisTarget = this.convertTo(targetUnit);
-        double subtract = thisTarget.value - otherTarget.value;
-
+        validateArithmeticOperands(other, targetUnit);
+        double subtract = performArithmeticOperation(other, targetUnit, ArithmeticOperation.SUBTRACT);
         return new Quantity<>(subtract, targetUnit);
     }
 
     public double divide(Quantity<U> other){
+        validateArithmeticOperands(other);
+        double ratio = performArithmeticOperation(other,ArithmeticOperation.DIVIDE);
+        return ratio;
+    }
+
+    private void validateArithmeticOperands(Quantity<U> other){
         if(other == null || other.unit.getClass() != this.unit.getClass()){
-            throw new IllegalArgumentException("Invalid addition quantity");
+            throw new IllegalArgumentException("Invalid operand");
         }
-        if(other.value==0.0){
-            throw new ArithmeticException("Cannot be divided by zero");
+    }
+
+    private void validateArithmeticOperands(Quantity<U> other, U targetUnit){
+        validateArithmeticOperands(other);
+        if(targetUnit == null || targetUnit.getClass() != this.unit.getClass()){
+            throw new IllegalArgumentException("Invalid target unit");
         }
+    }
+
+    private double performArithmeticOperation(Quantity<U> other, ArithmeticOperation operation){
         double thisBaseValue = this.unit.convertToBaseUnit(this.value);
         double otherBaseValue = other.unit.convertToBaseUnit(other.value);
-
-        return thisBaseValue/otherBaseValue;
+        double baseValue = operation.compute(thisBaseValue, otherBaseValue);
+        return baseValue;
     }
-    
 
-    @Override
-    public String toString() {
-        return String.format("%.2f %s", value, unit.toString().toLowerCase());
+    private double performArithmeticOperation(Quantity<U> other, U targetUnit, ArithmeticOperation operation){
+        double baseValue = performArithmeticOperation(other, operation);
+        return targetUnit.convertFromBaseUnit(baseValue);
     }
 
 }
