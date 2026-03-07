@@ -52,7 +52,7 @@ public class Quantity <U extends IMeasurable> {
 
     @Override
     public String toString() {
-        return String.format("%.2f %s", value, unit.toString().toLowerCase());
+        return String.format("%.2f %s", value, unit.getUnitName());
     }
 
     @Override
@@ -83,32 +83,37 @@ public class Quantity <U extends IMeasurable> {
         return new Quantity<>(newValue, targetUnit);
     }
 
-    public Quantity<U> add(Quantity<U> other){
+    public Quantity<U> add(Quantity<U> other) throws UnsupportedOperationsException{
+        this.unit.validateOperationSupport("Add");
         validateArithmeticOperands(other);
         double sum = performArithmeticOperation(other, this.unit, ArithmeticOperation.ADD);
 
         return new Quantity<>(sum, this.unit);
     }
     
-    public Quantity<U> add(Quantity<U> other, U targetUnit){
+    public Quantity<U> add(Quantity<U> other, U targetUnit) throws UnsupportedOperationsException{
+        this.unit.validateOperationSupport("Add");
         validateArithmeticOperands(other, targetUnit);
         double sum = performArithmeticOperation(other, targetUnit, ArithmeticOperation.ADD);
         return new Quantity<>(sum, targetUnit);
     }
 
-    public Quantity<U> subtract(Quantity<U> other){
+    public Quantity<U> subtract(Quantity<U> other)throws UnsupportedOperationsException{
+        this.unit.validateOperationSupport("Subtract");
         validateArithmeticOperands(other);
         double subtract = performArithmeticOperation(other, this.unit, ArithmeticOperation.SUBTRACT);
         return new Quantity<>(subtract, this.unit);
     }
     
-    public Quantity<U> subtract(Quantity<U> other, U targetUnit){
+    public Quantity<U> subtract(Quantity<U> other, U targetUnit) throws UnsupportedOperationsException{
+        this.unit.validateOperationSupport("Subtract");
         validateArithmeticOperands(other, targetUnit);
         double subtract = performArithmeticOperation(other, targetUnit, ArithmeticOperation.SUBTRACT);
         return new Quantity<>(subtract, targetUnit);
     }
 
-    public double divide(Quantity<U> other){
+    public double divide(Quantity<U> other) throws UnsupportedOperationsException{
+        this.unit.validateOperationSupport("Divide");
         validateArithmeticOperands(other);
         double ratio = performArithmeticOperation(other,ArithmeticOperation.DIVIDE);
         return ratio;

@@ -13,6 +13,11 @@ public enum VolumeUnit implements IMeasurable {
     }
 
     @Override
+    public String getUnitName(){
+        return this.toString().toLowerCase();
+    }
+
+    @Override
     public double getConversionFactor() {
         return conversionFactor;
     }

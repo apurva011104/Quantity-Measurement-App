@@ -11,54 +11,70 @@ public class QuantityMeasurementApp {
     }
 
     public static <U extends IMeasurable> Quantity<U> demonstrateAddition(Quantity<U> quantity1, Quantity<U> quantity2){
-        return quantity1.add(quantity2);
+        try {
+            return quantity1.add(quantity2);
+        } 
+        catch (UnsupportedOperationsException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;  
+        
     }
 
     public static <U extends IMeasurable> Quantity<U> demonstrateAddition(Quantity<U> quantity1, Quantity<U> quantity2, U targetUnit){
-        return quantity1.add(quantity2, targetUnit);
+        try {
+            return quantity1.add(quantity2, targetUnit);
+        } 
+        catch (UnsupportedOperationsException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;    
     }
 
     public static <U extends IMeasurable> Quantity<U> demonstrateSubtraction(Quantity<U> quantity1, Quantity<U> quantity2){
-        return quantity1.subtract(quantity2);
+        try {
+            return quantity1.subtract(quantity2);
+        } 
+        catch (UnsupportedOperationsException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     public static <U extends IMeasurable> Quantity<U> demonstrateSubtraction(Quantity<U> quantity1, Quantity<U> quantity2, U targetUnit){
-        return quantity1.subtract(quantity2, targetUnit);
+        try {
+            return quantity1.subtract(quantity2, targetUnit);
+        } 
+        catch (UnsupportedOperationsException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     public static <U extends IMeasurable> double demonstrateDivision(Quantity<U> quantity1, Quantity<U> quantity2){
-        return quantity1.divide(quantity2);
+        try {
+            return quantity1.divide(quantity2);
+
+        } catch (UnsupportedOperationsException e) {
+            System.out.println(e.getMessage());
+        }
+        return 0.0;
     }
 
 
     public static void main(String[] args) {
 
-        Quantity<LengthUnit> length1 = new Quantity<>(25.0, LengthUnit.FEET);
-        Quantity<LengthUnit> length2 = new Quantity<>(36.0, LengthUnit.YARDS);
+        Quantity<TemperatureUnit> temperature1 = new Quantity<>(0.0, TemperatureUnit.CELSIUS);
+        Quantity<TemperatureUnit> temperature2 = new Quantity<>(32.0, TemperatureUnit.FAHRENHEIT);
 
-        System.out.println(length1 + " + " + length2 + " = " + demonstrateAddition(length1, length2));
-        System.out.println(length1 + " + " + length2 + " = " + demonstrateAddition(length1, length2, LengthUnit.INCHES));
-        System.out.println(length1 + " - " + length2 + " = " + demonstrateSubtraction(length1, length2));
-        System.out.println(length1 + " - " + length2 + " = " + demonstrateSubtraction(length1, length2, LengthUnit.INCHES));
-        System.out.println(length1 + " / " + length2 + " = " + demonstrateDivision(length1, length2));
-
-        Quantity<WeightUnit> weight1 = new Quantity<>(25.0, WeightUnit.KILOGRAMS);
-        Quantity<WeightUnit> weight2 = new Quantity<>(10000.0, WeightUnit.GRAMS);
-
-        System.out.println(weight1 + " + " + weight2 + " = " + demonstrateAddition(weight1, weight2));
-        System.out.println(weight1 + " + " + weight2 + " = " + demonstrateAddition(weight1, weight2, WeightUnit.POUNDS));
-        System.out.println(weight1 + " - " + weight2 + " = " + demonstrateSubtraction(weight1, weight2));
-        System.out.println(weight1 + " - " + weight2 + " = " + demonstrateSubtraction(weight1, weight2, WeightUnit.POUNDS));
-        System.out.println(weight1 + " / " + weight2 + " = " + demonstrateDivision(weight1, weight2));
-
-        Quantity<VolumeUnit> volume1 = new Quantity<>(25.0, VolumeUnit.LITRE);
-        Quantity<VolumeUnit> volume2 = new Quantity<>(10000.0, VolumeUnit.MILLILITRE);
-
-        System.out.println(volume1 + " + " + volume2 + " = " + demonstrateAddition(volume1, volume2));
-        System.out.println(volume1 + " + " + volume2 + " = " + demonstrateAddition(volume1, volume2, VolumeUnit.GALLON));
-        System.out.println(volume1 + " - " + volume2 + " = " + demonstrateSubtraction(volume1, volume2));
-        System.out.println(volume1 + " - " + volume2 + " = " + demonstrateSubtraction(volume1, volume2, VolumeUnit.GALLON));
-        System.out.println(volume1 + " / " + volume2 + " = " + demonstrateDivision(volume1, volume2));
+        System.out.println("Is "+temperature1+" equals to "+temperature2+"? "+demonstrateEquality(temperature1, temperature2));
+        System.out.println(temperature1+" = "+demonstrateConversion(temperature1, TemperatureUnit.FAHRENHEIT));
+        System.out.println(temperature2+" = "+demonstrateConversion(temperature2, TemperatureUnit.KELVIN));
+        System.out.println(temperature1 + " + " + temperature2 + " = " + demonstrateAddition(temperature1, temperature2));
+        System.out.println(temperature1 + " + " + temperature2 + " = " + demonstrateAddition(temperature1, temperature2, TemperatureUnit.CELSIUS));
+        System.out.println(temperature1 + " - " + temperature2 + " = " + demonstrateSubtraction(temperature1, temperature2));
+        System.out.println(temperature1 + " - " + temperature2 + " = " + demonstrateSubtraction(temperature1, temperature2, TemperatureUnit.FAHRENHEIT));
+        System.out.println(temperature1 + " / " + temperature2 + " = " + demonstrateDivision(temperature1, temperature2));
 
     }
 }

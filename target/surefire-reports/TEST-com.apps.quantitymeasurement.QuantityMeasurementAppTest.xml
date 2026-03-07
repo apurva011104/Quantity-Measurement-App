@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.142" tests="57" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.286" tests="61" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-20\bin"/>
-    <property name="sun.java.command" value="C:\Users\apurv\AppData\Local\Temp\surefire9682448809943245617\surefirebooter-20260306173225554_3.jar C:\Users\apurv\AppData\Local\Temp\surefire9682448809943245617 2026-03-06T17-32-25_388-jvmRun1 surefire-20260306173225554_1tmp surefire_0-20260306173225554_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\apurv\AppData\Local\Temp\surefire15782721551551736260\surefirebooter-20260307162411395_3.jar C:\Users\apurv\AppData\Local\Temp\surefire15782721551551736260 2026-03-07T16-24-11_143-jvmRun1 surefire-20260307162411395_1tmp surefire_0-20260307162411395_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="com.apps.quantitymeasurement.QuantityMeasurementAppTest"/>
     <property name="surefire.test.class.path" value="C:\Users\apurv\OneDrive\Documents\Capgemini Training\quantity_measurement_app\target\test-classes;C:\Users\apurv\OneDrive\Documents\Capgemini Training\quantity_measurement_app\target\classes;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\apurv\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\apurv\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\apurv\AppData\Local\Temp\surefire9682448809943245617\surefirebooter-20260306173225554_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\apurv\AppData\Local\Temp\surefire15782721551551736260\surefirebooter-20260307162411395_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="20.0.1+9-29"/>
@@ -59,61 +59,65 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="64.0"/>
   </properties>
-  <testcase name="testOperation_Subtraction_ExplicitTargetUnit_Gallon" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.033"/>
-  <testcase name="testOperation_Addition_ExplicitTargetUnit_Millilitre" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testArithmeticOperation_Subtract_EnumComputation" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Addition_ExplicitTargetUnit_Litre" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Addition_ExplicitTargetUnit_Pound" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.007"/>
-  <testcase name="testOperation_Addition_ExplicitTargetUnit_Yards" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testOperation_Subtraction_VolumeQuantity_SameUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperationsIntegration" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testValidation_NullOperand_AdditionOperation" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testOperation_Subtraction_ExplicitTargetUnit_Feet" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Subtraction_ExplicitTargetUnit_Gram" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Subtraction_ExplicitTargetUnit_Inch" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Subtraction_ExplicitTargetUnit_Kilogram" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testArithmeticOperation_Add_EnumComputation" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Addition_LengthQuantity_CrossUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Addition_WeightQuantity_SameUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Addition_LengthQuantity_SameUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Subtraction_ExplicitTargetUnit_Litre" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Subtraction_ExplicitTargetUnit_Pound" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Subtraction_ExplicitTargetUnit_Yards" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testValidation_NullTargetUnit_SubtractionOperation" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Subtraction_WeightQuantity_CrossUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testRefactoring_Subtract_DelegatesViaHelper" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Subtraction_LargeQuantities" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Division_VolumeQuantity_SameUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Subtraction_ExplicitTargetUnit_Millilitre" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Division_LargeQuantities" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Addition_LargeQuantities" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Addition_ExplicitTargetUnit_Gallon" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Subtraction_WeightQuantity_SameUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Division_WeightQuantity_CrossUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Subtraction_LengthQuantity_SameUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testRefactoring_Divide_DelegatesViaHelper" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testOperation_Addition_ExplicitTargetUnit_Feet" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Addition_ExplicitTargetUnit_Gram" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Addition_ExplicitTargetUnit_Inch" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Subtraction_VolumeQuantity_CrossUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Addition_ExplicitTargetUnit_Centimeter" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testArithmeticOperation_Divide_EnumComputation" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testArithmeticOperation_DivideByZero_EnumThrows" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testRefactoring_Add_DelegatesViaHelper" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Division_WeightQuantity_SameUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Division_VolumeQuantity_CrossUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Division_LengthQuantity_SameUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Addition_WeightQuantity_CrossUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Subtraction_SmallQuantities" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testValidation_NullOperand_SubtractionOperation" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Subtraction_LengthQuantity_CrossUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Division_SmallQuantities" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testValidation_NullTargetUnit_AdditionOperation" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testOperation_Addition_SmallQuantities" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Addition_VolumeQuantity_SameUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Addition_ExplicitTargetUnit_Kilogram" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testValidation_NullOperand_DivisionOperation" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Addition_VolumeQuantity_CrossUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testOperation_Division_LengthQuantity_CrossUnits" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testOperation_Subtraction_ExplicitTargetUnit_Centimeter" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureQuantity_NonFiniteValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.037"/>
+  <testcase name="testTemperatureUnsupportedOperation_Divide" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.01"/>
+  <testcase name="testTemperatureEquality_CelsiusToFahrenheit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
+  <testcase name="testOperationSupportMethods_TemperatureUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
+  <testcase name="testTemperatureUnsupportedOperation_Subtract" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_ZeroValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureEquality_FahrenheitToKelvin" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testOperationSupportMethods_VolumeUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testOperationSupportMethods_WeightUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureEquality_NullValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureUnsupportedOperation_Add" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.031"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureQuantity_NullUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_LargeValues" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureQuantity_ObjectFormation" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_NegativeValues" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureEquality_CelsiusToKelvin" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureEquality_CelsiusToFahrenheit_Negative40Equal" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureEquality_CelsiusToCelsius_SameValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureEquality_SymmetricProperty" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureEquality_FahrenheitToFahrenheit_SameValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureConversion_RoundTrip_PreservesValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureEquality_ReflexiveProperty" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_SameUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureEquality_KelvinToKelvin_SameValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testOperationSupportMethods_LengthUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
 </testsuite>
