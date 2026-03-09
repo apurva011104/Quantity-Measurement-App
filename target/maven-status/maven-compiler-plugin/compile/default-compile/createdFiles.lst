@@ -1,3 +1,13 @@
+com\apps\quantitymeasurement\Quantity$ArithmeticOperation$3.class
+com\apps\quantitymeasurement\Quantity$ArithmeticOperation.class
 com\apps\quantitymeasurement\QuantityMeasurementApp.class
 com\apps\quantitymeasurement\LengthUnit.class
+com\apps\quantitymeasurement\Quantity$ArithmeticOperation$2.class
+com\apps\quantitymeasurement\Quantity.class
+com\apps\quantitymeasurement\IMeasurable.class
+com\apps\quantitymeasurement\SupportsArithmetic.class
+com\apps\quantitymeasurement\VolumeUnit.class
+com\apps\quantitymeasurement\TemperatureUnit.class
+com\apps\quantitymeasurement\UnsupportedOperationsException.class
 com\apps\quantitymeasurement\WeightUnit.class
+com\apps\quantitymeasurement\Quantity$ArithmeticOperation$1.class
