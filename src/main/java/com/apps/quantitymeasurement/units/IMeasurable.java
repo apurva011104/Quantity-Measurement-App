@@ -1,4 +1,7 @@
-package com.apps.quantitymeasurement;
+package com.apps.quantitymeasurement.units;
+
+import com.apps.quantitymeasurement.exception.UnsupportedOperationsException;
+import com.apps.quantitymeasurement.util.SupportsArithmetic;
 
 public interface IMeasurable {
 

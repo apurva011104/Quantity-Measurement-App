@@ -1,4 +1,7 @@
-package com.apps.quantitymeasurement;
+package com.apps.quantitymeasurement.model;
+
+import com.apps.quantitymeasurement.exception.UnsupportedOperationsException;
+import com.apps.quantitymeasurement.units.IMeasurable;
 
 public class Quantity <U extends IMeasurable> {
     

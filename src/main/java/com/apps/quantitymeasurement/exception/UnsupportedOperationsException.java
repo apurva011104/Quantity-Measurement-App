@@ -1,4 +1,4 @@
-package com.apps.quantitymeasurement;
+package com.apps.quantitymeasurement.exception;
 
 public class UnsupportedOperationsException extends Exception{
 

@@ -1,4 +1,9 @@
-package com.apps.quantitymeasurement;
+package com.apps.quantitymeasurement.application;
+
+import com.apps.quantitymeasurement.exception.UnsupportedOperationsException;
+import com.apps.quantitymeasurement.model.Quantity;
+import com.apps.quantitymeasurement.units.IMeasurable;
+import com.apps.quantitymeasurement.units.TemperatureUnit;
 
 public class QuantityMeasurementApp {
 
