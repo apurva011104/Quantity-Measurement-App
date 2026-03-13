@@ -1,23 +1,34 @@
 package com.apps.quantitymeasurement.application;
 
+import java.util.Set;
+
+import com.apps.quantitymeasurement.controller.QuantityMeasurementController;
+import com.apps.quantitymeasurement.entity.Quantity;
 import com.apps.quantitymeasurement.exception.UnsupportedOperationsException;
-import com.apps.quantitymeasurement.model.Quantity;
 import com.apps.quantitymeasurement.units.IMeasurable;
 import com.apps.quantitymeasurement.units.TemperatureUnit;
 
 public class QuantityMeasurementApp {
 
-    public static <U extends IMeasurable> boolean demonstrateEquality(Quantity<U> quantity1 , Quantity<U> quantity2){
-        return quantity1.equals(quantity2);
+    static QuantityMeasurementController quantityMeasurementController = new QuantityMeasurementController();
+
+    public static boolean demonstrateEquality(Quantity<?> quantity1 , Quantity<?> quantity2){
+        try {
+            return quantityMeasurementController.checkEquality(quantity1, quantity2);
+        } 
+        catch (UnsupportedOperationsException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     public static <U extends IMeasurable> Quantity<U> demonstrateConversion(Quantity<U> quantity, U targetUnit){
-        return quantity.convertTo(targetUnit);
+        return quantityMeasurementController.convert(quantity, targetUnit);
     }
 
     public static <U extends IMeasurable> Quantity<U> demonstrateAddition(Quantity<U> quantity1, Quantity<U> quantity2){
         try {
-            return quantity1.add(quantity2);
+            return quantityMeasurementController.add(quantity1, quantity2);
         } 
         catch (UnsupportedOperationsException e) {
             System.out.println(e.getMessage());
@@ -28,7 +39,7 @@ public class QuantityMeasurementApp {
 
     public static <U extends IMeasurable> Quantity<U> demonstrateAddition(Quantity<U> quantity1, Quantity<U> quantity2, U targetUnit){
         try {
-            return quantity1.add(quantity2, targetUnit);
+            return quantityMeasurementController.add(quantity1, quantity2, targetUnit);
         } 
         catch (UnsupportedOperationsException e) {
             System.out.println(e.getMessage());
@@ -38,7 +49,7 @@ public class QuantityMeasurementApp {
 
     public static <U extends IMeasurable> Quantity<U> demonstrateSubtraction(Quantity<U> quantity1, Quantity<U> quantity2){
         try {
-            return quantity1.subtract(quantity2);
+            return quantityMeasurementController.subtract(quantity1, quantity2);
         } 
         catch (UnsupportedOperationsException e) {
             System.out.println(e.getMessage());
@@ -48,7 +59,7 @@ public class QuantityMeasurementApp {
 
     public static <U extends IMeasurable> Quantity<U> demonstrateSubtraction(Quantity<U> quantity1, Quantity<U> quantity2, U targetUnit){
         try {
-            return quantity1.subtract(quantity2, targetUnit);
+            return quantityMeasurementController.subtract(quantity1, quantity2, targetUnit);
         } 
         catch (UnsupportedOperationsException e) {
             System.out.println(e.getMessage());
@@ -58,7 +69,7 @@ public class QuantityMeasurementApp {
 
     public static <U extends IMeasurable> double demonstrateDivision(Quantity<U> quantity1, Quantity<U> quantity2){
         try {
-            return quantity1.divide(quantity2);
+            return quantityMeasurementController.divide(quantity1, quantity2);
 
         } catch (UnsupportedOperationsException e) {
             System.out.println(e.getMessage());
@@ -66,6 +77,12 @@ public class QuantityMeasurementApp {
         return 0.0;
     }
 
+    public static void printHistory(){
+        Set<Quantity<?>> quantities = quantityMeasurementController.getQuantityMeasurementHistory();
+        for(Quantity<?> quantity: quantities){
+            System.out.println(quantity);
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -80,6 +97,8 @@ public class QuantityMeasurementApp {
         System.out.println(temperature1 + " - " + temperature2 + " = " + demonstrateSubtraction(temperature1, temperature2));
         System.out.println(temperature1 + " - " + temperature2 + " = " + demonstrateSubtraction(temperature1, temperature2, TemperatureUnit.FAHRENHEIT));
         System.out.println(temperature1 + " / " + temperature2 + " = " + demonstrateDivision(temperature1, temperature2));
+
+        printHistory();
 
     }
 }

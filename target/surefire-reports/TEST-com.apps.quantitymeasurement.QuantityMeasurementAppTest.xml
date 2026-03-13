@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.286" tests="61" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.319" tests="68" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="java.specification.version" value="20"/>
+    <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\apurv\OneDrive\Documents\Capgemini Training\quantity_measurement_app\target\test-classes;C:\Users\apurv\OneDrive\Documents\Capgemini Training\quantity_measurement_app\target\classes;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\apurv\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\apurv\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
+    <property name="java.class.path" value="C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\test-classes;C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\classes;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\apurv\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\apurv\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="user.timezone" value="Asia/Calcutta"/>
     <property name="os.name" value="Windows 11"/>
-    <property name="java.vm.specification.version" value="20"/>
+    <property name="java.vm.specification.version" value="25"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-20\bin"/>
-    <property name="sun.java.command" value="C:\Users\apurv\AppData\Local\Temp\surefire15782721551551736260\surefirebooter-20260307162411395_3.jar C:\Users\apurv\AppData\Local\Temp\surefire15782721551551736260 2026-03-07T16-24-11_143-jvmRun1 surefire-20260307162411395_1tmp surefire_0-20260307162411395_2tmp"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-25.0.2\bin"/>
+    <property name="sun.java.command" value="C:\Users\apurv\AppData\Local\Temp\surefire16472830795366298441\surefirebooter-20260313235409191_3.jar C:\Users\apurv\AppData\Local\Temp\surefire16472830795366298441 2026-03-13T23-54-09_068-jvmRun1 surefire-20260313235409191_1tmp surefire_0-20260313235409191_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="com.apps.quantitymeasurement.QuantityMeasurementAppTest"/>
-    <property name="surefire.test.class.path" value="C:\Users\apurv\OneDrive\Documents\Capgemini Training\quantity_measurement_app\target\test-classes;C:\Users\apurv\OneDrive\Documents\Capgemini Training\quantity_measurement_app\target\classes;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\apurv\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\apurv\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\test-classes;C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\classes;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\apurv\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\apurv\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\apurv"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2023-04-18"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk-20"/>
+    <property name="java.version.date" value="2026-01-20"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-25.0.2"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\apurv\OneDrive\Documents\Capgemini Training\quantity_measurement_app"/>
-    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="basedir" value="C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\apurv\AppData\Local\Temp\surefire15782721551551736260\surefirebooter-20260307162411395_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\apurv\AppData\Local\Temp\surefire16472830795366298441\surefirebooter-20260313235409191_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="20.0.1+9-29"/>
-    <property name="user.name" value="apurva"/>
+    <property name="java.runtime.version" value="25.0.2+10-LTS-69"/>
+    <property name="user.name" value="apurv"/>
     <property name="stdout.encoding" value="Cp1252"/>
     <property name="path.separator" value=";"/>
     <property name="os.version" value="10.0"/>
@@ -45,79 +45,87 @@
     <property name="localRepository" value="C:\Users\apurv\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\apurv\AppData\Local\Temp\"/>
-    <property name="java.version" value="20.0.1"/>
-    <property name="user.dir" value="C:\Users\apurv\OneDrive\Documents\Capgemini Training\quantity_measurement_app"/>
+    <property name="java.version" value="25.0.2"/>
+    <property name="user.dir" value="C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-20\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\apurv\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\apurv\bin;C:\Users\apurv\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;C:\Users\apurv\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Users\apurv\AppData\Local\Programs\Microsoft VS Code;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Java\jdk-20\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\apurv\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\Microsoft SQL Server\170\Tools\Binn;C:\Program Files\apache-maven-3.9.12\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Users\apurv\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\apurv\AppData\Local\Programs\Python\Python313;C:\Users\apurv\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\IntelliJ IDEA Community Edition 2023.1.3\bin;C:\Users\apurv\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\apurv\AppData\Local\atom\bin;C:\Users\apurv\AppData\Local\Programs\mongosh;C:\Program Files\JetBrains\WebStorm 2024.1.5\bin;C:\Users\apurv\AppData\Roaming\npm;C:\Users\apurv\AppData\Local\Microsoft\WindowsApps;C:\Users\apurv\.vscode\extensions\vscjava.vscode-java-debug-0.58.5\bundled\scripts\noConfigScripts;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-25.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Users\apurv\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\apurv\bin;C:\Users\apurv\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;C:\Users\apurv\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Users\apurv\AppData\Local\Programs\Microsoft VS Code;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Java\jdk-25.0.2\bin;C:\Program Files\Git\cmd;C:\Program Files\apache-maven-3.9.13\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Users\apurv\AppData\Local\Microsoft\WindowsApps;C:\Users\apurv\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\apurv\.vscode\extensions\vscjava.vscode-java-debug-0.58.5\bundled\scripts\noConfigScripts;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.version" value="20.0.1+9-29"/>
+    <property name="java.vm.version" value="25.0.2+10-LTS-69"/>
+    <property name="stdin.encoding" value="Cp1252"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="64.0"/>
+    <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testTemperatureQuantity_NonFiniteValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.037"/>
-  <testcase name="testTemperatureUnsupportedOperation_Divide" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.01"/>
-  <testcase name="testTemperatureEquality_CelsiusToFahrenheit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
+  <testcase name="testTemperatureQuantity_NonFiniteValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.031"/>
+  <testcase name="testService_CompareEquality_SameUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.006"/>
+  <testcase name="testTemperatureUnsupportedOperation_Divide" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureEquality_CelsiusToFahrenheit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
   <testcase name="testOperationSupportMethods_TemperatureUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
   <testcase name="testTemperatureUnsupportedOperation_Subtract" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testTemperatureConversion_ZeroValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testTemperatureEquality_FahrenheitToKelvin" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testService_CompareEquality_DifferentUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_ZeroValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
+  <testcase name="testTemperatureEquality_FahrenheitToKelvin" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testService_Add_UnsupportedOperation_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.004"/>
   <testcase name="testOperationSupportMethods_VolumeUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testOperationSupportMethods_WeightUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testTemperatureEquality_NullValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testOperationSupportMethods_WeightUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureEquality_NullValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
   <testcase name="testTemperatureUnsupportedOperation_Add" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.031"/>
-  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureQuantity_NullUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_LargeValues" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.034"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_KelvinToFahrenheit_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureQuantity_NullUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_LargeValues" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
   <testcase name="testTemperatureQuantity_ObjectFormation" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testTemperatureConversion_NegativeValues" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testService_Add_ExplicitTargetUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.006"/>
+  <testcase name="testTemperatureConversion_NegativeValues" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
   <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
+  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
   <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testTemperatureEquality_CelsiusToKelvin" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_CelsiusToKelvin_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureEquality_CelsiusToKelvin" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
   <testcase name="testTemperatureEquality_CelsiusToFahrenheit_Negative40Equal" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
   <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
   <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testTemperatureEquality_CelsiusToCelsius_SameValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
+  <testcase name="testTemperatureConversion_FahrenheitToCelsius_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureEquality_CelsiusToCelsius_SameValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
   <testcase name="testTemperatureEquality_SymmetricProperty" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureEquality_FahrenheitToFahrenheit_SameValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureEquality_FahrenheitToFahrenheit_SameValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
   <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureConversion_KelvinToCelsius_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testService_Add_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
   <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
   <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
   <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
   <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testTemperatureConversion_RoundTrip_PreservesValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureEquality_ReflexiveProperty" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testTemperatureConversion_SameUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testTemperatureEquality_KelvinToKelvin_SameValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_FahrenheitToKelvin_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testService_CompareEquality_CrossCategory_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_RoundTrip_PreservesValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testTemperatureEquality_ReflexiveProperty" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_SameUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureEquality_KelvinToKelvin_SameValue" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
+  <testcase name="testService_Convert_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
   <testcase name="testOperationSupportMethods_LengthUnit" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
   <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
   <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[5]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
   <testcase name="testTemperatureConversion_CelsiusToFahrenheit_VariousValues(double)[6]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
 </testsuite>

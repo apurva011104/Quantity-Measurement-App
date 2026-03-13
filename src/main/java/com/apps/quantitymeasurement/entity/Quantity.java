@@ -1,4 +1,4 @@
-package com.apps.quantitymeasurement.model;
+package com.apps.quantitymeasurement.entity;
 
 import com.apps.quantitymeasurement.exception.UnsupportedOperationsException;
 import com.apps.quantitymeasurement.units.IMeasurable;
@@ -59,7 +59,18 @@ public class Quantity <U extends IMeasurable> {
     }
 
     @Override
+    public int hashCode() {
+        double baseValue = unit.convertToBaseUnit(value);
+        double rounded = Math.round(baseValue * 100.0) / 100.0;
+    
+        return Double.hashCode(rounded) + unit.getClass().hashCode();
+    }
+
+    @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if(obj==null || obj.getClass()!=this.getClass()){
             return false;
         }

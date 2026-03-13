@@ -9,6 +9,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import com.apps.quantitymeasurement.entity.Quantity;
+import com.apps.quantitymeasurement.exception.UnsupportedOperationsException;
+import com.apps.quantitymeasurement.service.QuantityMeasurementService;
+import com.apps.quantitymeasurement.units.LengthUnit;
+import com.apps.quantitymeasurement.units.TemperatureUnit;
+import com.apps.quantitymeasurement.units.VolumeUnit;
+import com.apps.quantitymeasurement.units.WeightUnit;
+
 public class QuantityMeasurementAppTest {
 
     @Test
@@ -250,5 +258,87 @@ public class QuantityMeasurementAppTest {
     @Test
     public void testOperationSupportMethods_TemperatureUnit(){
         assertFalse(TemperatureUnit.CELSIUS.supportsArithmetic());
+    }
+
+    @Test
+    public void testService_CompareEquality_SameUnit_Success() throws UnsupportedOperationsException{
+        QuantityMeasurementService service = new QuantityMeasurementService();
+
+        Quantity<LengthUnit> quantity1 = new Quantity<>(45.0, LengthUnit.FEET);
+        Quantity<LengthUnit> quantity2 = new Quantity<>(45.0, LengthUnit.FEET);
+
+        assertTrue(service.checkEquality(quantity1, quantity2));
+    }
+
+    @Test
+    public void testService_CompareEquality_DifferentUnit_Success() throws UnsupportedOperationsException{
+        QuantityMeasurementService service = new QuantityMeasurementService();
+
+        Quantity<LengthUnit> quantity1 = new Quantity<>(45.0, LengthUnit.FEET);
+        Quantity<LengthUnit> quantity2 = new Quantity<>(15.0, LengthUnit.YARDS);
+
+        assertTrue(service.checkEquality(quantity1, quantity2));
+    }
+
+    @Test
+    public void testService_CompareEquality_CrossCategory_Error(){
+        QuantityMeasurementService service = new QuantityMeasurementService();
+
+        Quantity<WeightUnit> quantity1 = new Quantity<>(5.0, WeightUnit.KILOGRAMS);
+        Quantity<VolumeUnit> quantity2 = new Quantity<>(15.0, VolumeUnit.GALLON);
+
+        assertThrows( UnsupportedOperationsException.class, ()->{
+            service.checkEquality(quantity1, quantity2);
+        });
+    }
+
+    @Test
+    public void testService_Convert_Success(){
+        QuantityMeasurementService service = new QuantityMeasurementService();
+
+        Quantity<TemperatureUnit> quantity = new Quantity<>(0.0, TemperatureUnit.CELSIUS);
+        Quantity<TemperatureUnit> converted = service.convert(quantity, TemperatureUnit.FAHRENHEIT);
+
+        Quantity<TemperatureUnit> expected = new Quantity<>(32.0, TemperatureUnit.FAHRENHEIT);
+
+        assertEquals(expected, converted);
+    }
+
+    @Test
+    public void testService_Add_Success() throws UnsupportedOperationsException{
+        QuantityMeasurementService service = new QuantityMeasurementService();
+
+        Quantity<LengthUnit> quantity1 = new Quantity<>(14.0, LengthUnit.FEET);
+        Quantity<LengthUnit> quantity2 = new Quantity<>(3.0, LengthUnit.YARDS);
+        Quantity<LengthUnit> sum = service.add(quantity1, quantity2);
+
+        Quantity<LengthUnit> expected = new Quantity<>(23.0, LengthUnit.FEET);
+
+        assertEquals(expected, sum);
+    }
+
+    @Test
+    public void testService_Add_ExplicitTargetUnit_Success() throws UnsupportedOperationsException{
+        QuantityMeasurementService service = new QuantityMeasurementService();
+
+        Quantity<LengthUnit> quantity1 = new Quantity<>(5.0, LengthUnit.FEET);
+        Quantity<LengthUnit> quantity2 = new Quantity<>(3.0, LengthUnit.YARDS);
+        Quantity<LengthUnit> sum = service.add(quantity1, quantity2,LengthUnit.INCHES);
+
+        Quantity<LengthUnit> expected = new Quantity<>(168.0, LengthUnit.INCHES);
+
+        assertEquals(expected, sum);
+    }
+
+    @Test
+    public void testService_Add_UnsupportedOperation_Error(){
+        QuantityMeasurementService service = new QuantityMeasurementService();
+
+        Quantity<TemperatureUnit> quantity1 = new Quantity<>(0.0, TemperatureUnit.CELSIUS);
+        Quantity<TemperatureUnit> quantity2 = new Quantity<>(32.0, TemperatureUnit.FAHRENHEIT);
+
+        assertThrows( UnsupportedOperationsException.class, ()->{
+            service.add(quantity1, quantity2);
+        });
     }
 }
