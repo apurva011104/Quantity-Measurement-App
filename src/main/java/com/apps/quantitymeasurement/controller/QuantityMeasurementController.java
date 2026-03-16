@@ -17,6 +17,9 @@ public class QuantityMeasurementController {
     }
 
     public QuantityMeasurementController(IQuantityMeasurementService quantityMeasurementService) {
+        if(quantityMeasurementService==null){
+            throw new IllegalArgumentException("Invalid service.");
+        }
         this.quantityMeasurementService = quantityMeasurementService;
     }
 

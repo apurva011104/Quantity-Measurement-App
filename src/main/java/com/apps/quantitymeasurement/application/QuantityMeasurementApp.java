@@ -16,21 +16,27 @@ public class QuantityMeasurementApp {
         try {
             return quantityMeasurementController.checkEquality(quantity1, quantity2);
         } 
-        catch (UnsupportedOperationsException e) {
+        catch (UnsupportedOperationsException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return false;
         }
     }
 
     public static <U extends IMeasurable> Quantity<U> demonstrateConversion(Quantity<U> quantity, U targetUnit){
-        return quantityMeasurementController.convert(quantity, targetUnit);
+        try {
+            return quantityMeasurementController.convert(quantity, targetUnit);
+        } 
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     public static <U extends IMeasurable> Quantity<U> demonstrateAddition(Quantity<U> quantity1, Quantity<U> quantity2){
         try {
             return quantityMeasurementController.add(quantity1, quantity2);
         } 
-        catch (UnsupportedOperationsException e) {
+        catch (UnsupportedOperationsException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
         return null;  
@@ -41,7 +47,7 @@ public class QuantityMeasurementApp {
         try {
             return quantityMeasurementController.add(quantity1, quantity2, targetUnit);
         } 
-        catch (UnsupportedOperationsException e) {
+        catch (UnsupportedOperationsException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
         return null;    
@@ -51,7 +57,7 @@ public class QuantityMeasurementApp {
         try {
             return quantityMeasurementController.subtract(quantity1, quantity2);
         } 
-        catch (UnsupportedOperationsException e) {
+        catch (UnsupportedOperationsException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
         return null;
@@ -61,7 +67,7 @@ public class QuantityMeasurementApp {
         try {
             return quantityMeasurementController.subtract(quantity1, quantity2, targetUnit);
         } 
-        catch (UnsupportedOperationsException e) {
+        catch (UnsupportedOperationsException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
         return null;
@@ -71,7 +77,7 @@ public class QuantityMeasurementApp {
         try {
             return quantityMeasurementController.divide(quantity1, quantity2);
 
-        } catch (UnsupportedOperationsException e) {
+        } catch (UnsupportedOperationsException | IllegalArgumentException | ArithmeticException e) {
             System.out.println(e.getMessage());
         }
         return 0.0;
