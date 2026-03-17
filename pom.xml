@@ -19,6 +19,7 @@
   </properties>
 
   <dependencies>
+
     <!-- JUnit 5 Jupiter API & Engine -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -26,6 +27,19 @@
       <version>${junit.jupiter.version}</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>2.3.232</version>
+    </dependency>
+
   </dependencies>
 
   <build>

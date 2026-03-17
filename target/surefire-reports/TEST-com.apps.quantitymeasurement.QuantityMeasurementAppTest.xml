@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.114" tests="33" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.454" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\test-classes;C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\classes;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\apurv\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\apurv\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
+    <property name="java.class.path" value="C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\test-classes;C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\classes;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\apurv\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\apurv\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\apurv\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;C:\Users\apurv\.m2\repository\com\google\protobuf\protobuf-java\3.21.9\protobuf-java-3.21.9.jar;C:\Users\apurv\.m2\repository\com\h2database\h2\2.3.232\h2-2.3.232.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,10 +15,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-25.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\apurv\AppData\Local\Temp\surefire3181783478054279740\surefirebooter-20260316110218647_3.jar C:\Users\apurv\AppData\Local\Temp\surefire3181783478054279740 2026-03-16T11-02-18_535-jvmRun1 surefire-20260316110218647_1tmp surefire_0-20260316110218647_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\apurv\AppData\Local\Temp\surefire10662367071651012943\surefirebooter-20260317231336619_3.jar C:\Users\apurv\AppData\Local\Temp\surefire10662367071651012943 2026-03-17T23-13-36_477-jvmRun1 surefire-20260317231336619_1tmp surefire_0-20260317231336619_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="com.apps.quantitymeasurement.QuantityMeasurementAppTest"/>
-    <property name="surefire.test.class.path" value="C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\test-classes;C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\classes;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\apurv\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\apurv\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\test-classes;C:\Users\apurv\Documents\Capgemini Training\quantity-measurement-app\target\classes;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\apurv\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\apurv\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\apurv\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\apurv\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;C:\Users\apurv\.m2\repository\com\google\protobuf\protobuf-java\3.21.9\protobuf-java-3.21.9.jar;C:\Users\apurv\.m2\repository\com\h2database\h2\2.3.232\h2-2.3.232.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\apurv"/>
     <property name="user.language" value="en"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\apurv\AppData\Local\Temp\surefire3181783478054279740\surefirebooter-20260316110218647_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\apurv\AppData\Local\Temp\surefire10662367071651012943\surefirebooter-20260317231336619_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.2+10-LTS-69"/>
@@ -60,37 +60,23 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testController_Conversion_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.031"/>
-  <testcase name="testService_CompareEquality_SameUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testLayerSeparation_ServiceIndependence" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testController_Add_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testService_Subtract_UnsupportedOperation_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.005"/>
-  <testcase name="testService_CompareEquality_DifferentUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testService_DivideByZero_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testController_Add_UnsupportedOperation_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testService_Add_UnsupportedOperation_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testService_NullRepository_Rejection" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testDataFlow_ControllerToService" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
-  <testcase name="testController_DivideByZero_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testService_Subtract_ExplicitTargetUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testController_Equality_CrossCategory_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testController_Divide_UnsupportedOperation_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testService_Divide_UnsupportedOperation_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testController_NullService_Prevention" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testController_Add_ExplicitTargetUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testService_Subtract_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testService_Add_ExplicitTargetUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testController_Subtract_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testController_Equality_DifferentUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testLayerSeparation_ControllerIndependence" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testDataFlow_ServiceToController" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testController_Divide_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
-  <testcase name="testService_Add_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testService_NullQuantityEntity_Rejection" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testController_Subtract_UnsupportedOperation_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testService_CompareEquality_CrossCategory_Error" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
-  <testcase name="testController_Equality_SameUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testService_Divide_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testService_Convert_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.0"/>
-  <testcase name="testController_Subtract_ExplicitTargetUnit_Success" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testDatabaseRepository_SaveEntity" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.335">
+    <system-out><![CDATA[H2 Console started at http://localhost:8082
+Database connection established successfully
+]]></system-out>
+  </testcase>
+  <testcase name="testDatabaseConfiguration_PropertiesFileExists" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.008"/>
+  <testcase name="testDatabaseConfiguration_DatabaseConnectionEstablished" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.002"/>
+  <testcase name="testDatabaseRepository_SaveEntity_DuplicatePrevention" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.004">
+    <system-out><![CDATA[Duplicate entry ignored
+]]></system-out>
+  </testcase>
+  <testcase name="testDatabaseRepository_deleteAll" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.009"/>
+  <testcase name="testDatabaseRepository_RetrieveAllMeasurements" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
+  <testcase name="testDatabaseConfiguration_LoadedFromProperties(String)[1]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.016"/>
+  <testcase name="testDatabaseConfiguration_LoadedFromProperties(String)[2]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
+  <testcase name="testDatabaseConfiguration_LoadedFromProperties(String)[3]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testDatabaseConfiguration_LoadedFromProperties(String)[4]" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.001"/>
+  <testcase name="testDatabaseRepository_QueryByMeasurementType" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.003"/>
+  <testcase name="testDatabaseConfiguration_TableExists" classname="com.apps.quantitymeasurement.QuantityMeasurementAppTest" time="0.007"/>
 </testsuite>
