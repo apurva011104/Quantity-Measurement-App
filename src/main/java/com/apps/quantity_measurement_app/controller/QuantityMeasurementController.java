@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.apps.quantity_measurement_app.domain.OperationHistory;
 import com.apps.quantity_measurement_app.domain.Quantity;
+import com.apps.quantity_measurement_app.dto.OperationHistoryResponseDTO;
 import com.apps.quantity_measurement_app.dto.QuantityRequestDTO;
 import com.apps.quantity_measurement_app.dto.QuantityResponseDTO;
 import com.apps.quantity_measurement_app.dto.TwoQuantityRequestDTO;
@@ -34,13 +36,14 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/quantities")
 public class QuantityMeasurementController {
+    
     private final QuantityService service;
 
     public QuantityMeasurementController(QuantityService service) {
         this.service = service;
     }
 
-    private Quantity<?> toDomain(QuantityRequestDTO dto){
+    private Quantity<?> quantityToDomain(QuantityRequestDTO dto){
         QuantityEntity entity = new QuantityEntity(
                                 dto.getValue(),
                                 dto.getUnit(),
@@ -49,10 +52,15 @@ public class QuantityMeasurementController {
         return QuantityMapper.toDomain(entity);
     }
 
-    private QuantityResponseDTO toDTO(Quantity<?> quantity){
+    private QuantityResponseDTO quantityToDTO(Quantity<?> quantity){
         QuantityResponseDTO responseDTO = new QuantityResponseDTO(
                                 quantity.getValue(), quantity.getUnit().getUnitName(), quantity.getUnit().getClass().getSimpleName());
         return responseDTO;
+    }
+
+    private OperationHistoryResponseDTO operationHistoryToDTO(OperationHistory history){
+        return new OperationHistoryResponseDTO(
+                        history.getOperationType().name(), history.getOperand1(), history.getOperand2(), history.getResult());
     }
 
     private static final Map<String, Function<String,? extends IMeasurable>> units = Map.of(
@@ -72,8 +80,8 @@ public class QuantityMeasurementController {
 
     @PostMapping("/equals")
     public ResponseEntity<?> checkEquality(@Valid @RequestBody TwoQuantityRequestDTO requestDTOs){
-        Quantity<?> quantity1 = toDomain(requestDTOs.getQuantity1());
-        Quantity<?> quantity2 = toDomain(requestDTOs.getQuantity2());
+        Quantity<?> quantity1 = quantityToDomain(requestDTOs.getQuantity1());
+        Quantity<?> quantity2 = quantityToDomain(requestDTOs.getQuantity2());
         try{
             boolean result = service.checkEquality(quantity1, quantity2);
             return ResponseEntity.ok(result);
@@ -86,11 +94,11 @@ public class QuantityMeasurementController {
     @PostMapping("/convert")
     public ResponseEntity<?> convert(@RequestBody QuantityRequestDTO dto, @RequestParam String targetUnit) {
         try {
-            Quantity<?> quantity = toDomain(dto);
+            Quantity<?> quantity = quantityToDomain(dto);
             String measurementType = quantity.getUnit().getClass().getSimpleName();
             IMeasurable target = getUnit( measurementType, targetUnit);
             Quantity<?> converted = service.convert(quantity, target);
-            return ResponseEntity.ok(toDTO(converted));
+            return ResponseEntity.ok(quantityToDTO(converted));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -100,8 +108,8 @@ public class QuantityMeasurementController {
     public ResponseEntity<?> add(
                             @RequestBody TwoQuantityRequestDTO requestDTOs,
                             @RequestParam(required = false) String targetUnit) {
-        Quantity<?> quantity1 = toDomain(requestDTOs.getQuantity1());
-        Quantity<?> quantity2 = toDomain(requestDTOs.getQuantity2());
+        Quantity<?> quantity1 = quantityToDomain(requestDTOs.getQuantity1());
+        Quantity<?> quantity2 = quantityToDomain(requestDTOs.getQuantity2());
         try {
             Quantity<?> sum;
             if (targetUnit == null) {
@@ -111,7 +119,7 @@ public class QuantityMeasurementController {
                 IMeasurable target = getUnit(measurementType, targetUnit);
                 sum = service.add(quantity1, quantity2, target);
             }
-            return ResponseEntity.ok(toDTO(sum));
+            return ResponseEntity.ok(quantityToDTO(sum));
         } 
         catch (UnsupportedOperationsException | IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -122,8 +130,8 @@ public class QuantityMeasurementController {
     public ResponseEntity<?> subtract(
                             @RequestBody TwoQuantityRequestDTO requestDTOs,
                             @RequestParam(required = false) String targetUnit) {
-        Quantity<?> quantity1 = toDomain(requestDTOs.getQuantity1());
-        Quantity<?> quantity2 = toDomain(requestDTOs.getQuantity2());
+        Quantity<?> quantity1 = quantityToDomain(requestDTOs.getQuantity1());
+        Quantity<?> quantity2 = quantityToDomain(requestDTOs.getQuantity2());
         try {
             Quantity<?> diff;
             if (targetUnit == null) {
@@ -133,7 +141,7 @@ public class QuantityMeasurementController {
                 IMeasurable target = getUnit(measurementType, targetUnit);
                 diff = service.subtract(quantity1, quantity2, target);
             }
-            return ResponseEntity.ok(toDTO(diff));
+            return ResponseEntity.ok(quantityToDTO(diff));
         } 
         catch (UnsupportedOperationsException | IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -143,8 +151,8 @@ public class QuantityMeasurementController {
     @PostMapping("/divide")
     public ResponseEntity<?> divide(@RequestBody TwoQuantityRequestDTO requestDTOs) {
         try{
-            Quantity<?> quantity1 = toDomain(requestDTOs.getQuantity1());
-            Quantity<?> quantity2 = toDomain(requestDTOs.getQuantity2());
+            Quantity<?> quantity1 = quantityToDomain(requestDTOs.getQuantity1());
+            Quantity<?> quantity2 = quantityToDomain(requestDTOs.getQuantity2());
             double ratio = service.divide(quantity1, quantity2);
             return ResponseEntity.ok(ratio);
         }
@@ -153,26 +161,46 @@ public class QuantityMeasurementController {
         }
     }
     
-    @GetMapping("/history")
-    public ResponseEntity<?> getAllHistory() {
+    @GetMapping("/quantityHistory")
+    public ResponseEntity<?> getQuantityHistory() {
         return ResponseEntity.ok(
                     service.getAllHistory().stream()
-                           .map(this::toDTO)
+                           .map(this::quantityToDTO)
                            .toList());
     }
     
-    @GetMapping("/history/{type}")
-    public ResponseEntity<?> getByType(@PathVariable String type) {
+    @GetMapping("/quantityHistory/{measurementType}")
+    public ResponseEntity<?> getQuantityHistoryByType(@PathVariable String measurementType) {
         return ResponseEntity.ok(
-                service.getByMeasurementType(type).stream()
-                                .map(this::toDTO)
+                service.getByMeasurementType(measurementType).stream()
+                                .map(this::quantityToDTO)
                                 .toList());
     }
+
+    @GetMapping("/operationsHistory")
+    public ResponseEntity<?> getOperationHistory() {
+        return ResponseEntity.ok(
+                service.getOperationHistory()
+                        .stream()
+                        .map(this::operationHistoryToDTO)
+                        .toList());
+    }
+
+    @GetMapping("/operationsHistory/{operationType}")
+    public ResponseEntity<?> getOperationHistory(@PathVariable String operationType) {
+        return ResponseEntity.ok(
+                service.getOperationHistory(operationType)
+                        .stream()
+                        .map(this::operationHistoryToDTO)
+                        .toList());
+    }
+    
+    
 
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteAll() {
         service.deleteAll();
-        return ResponseEntity.ok("All records deleted");
+        return ResponseEntity.ok("All quantities record deleted");
     }
     
 }

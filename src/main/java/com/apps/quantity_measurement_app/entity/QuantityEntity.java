@@ -6,22 +6,30 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="quantities")
+@Table(name="quantities", 
+    uniqueConstraints = {
+        @UniqueConstraint(
+            name = "unique_quantity_constraint",
+            columnNames = {"quantity_value", "unit", "measurement_type"}
+        )
+    }
+)
 public class QuantityEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable=false)
+    @Column(name="quantity_value", nullable=false)
     private double quantityValue;
 
-    @Column(nullable=false)
+    @Column(name="unit", nullable=false)
     private String unit;
 
-    @Column(nullable=false)
+    @Column(name="measurement_type", nullable=false)
     private String measurementType;
 
     public QuantityEntity() {

@@ -2,6 +2,7 @@ package com.apps.quantity_measurement_app.service;
 
 import java.util.List;
 
+import com.apps.quantity_measurement_app.domain.OperationHistory;
 import com.apps.quantity_measurement_app.domain.Quantity;
 import com.apps.quantity_measurement_app.exception.UnsupportedOperationsException;
 import com.apps.quantity_measurement_app.units.IMeasurable;
@@ -24,7 +25,11 @@ public interface QuantityService {
 
     List<Quantity<?>> getAllHistory();
 
-    List<Quantity<?>> getByMeasurementType(String type);
+    List<Quantity<?>> getByMeasurementType(String measurementType);
+
+    List<OperationHistory> getOperationHistory();
+
+    List<OperationHistory> getOperationHistory(String operationType);
 
     void deleteAll();
 }
