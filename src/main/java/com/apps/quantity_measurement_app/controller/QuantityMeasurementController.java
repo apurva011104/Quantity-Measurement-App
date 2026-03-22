@@ -31,8 +31,6 @@ import com.apps.quantity_measurement_app.units.WeightUnit;
 
 import jakarta.validation.Valid;
 
-
-
 @RestController
 @RequestMapping("/quantities")
 public class QuantityMeasurementController {
@@ -64,10 +62,10 @@ public class QuantityMeasurementController {
     }
 
     private static final Map<String, Function<String,? extends IMeasurable>> units = Map.of(
-                "LengthUnit", unitType -> LengthUnit.valueOf(unitType),
-                "WeightUnit", unitType -> WeightUnit.valueOf(unitType),
-                "VolumeUnit", unitType -> VolumeUnit.valueOf(unitType),
-                "TemperatureUnit", unitType -> TemperatureUnit.valueOf(unitType)
+                "LengthUnit", unitType -> LengthUnit.valueOf(unitType.toUpperCase()),
+                "WeightUnit", unitType -> WeightUnit.valueOf(unitType.toUpperCase()),
+                "VolumeUnit", unitType -> VolumeUnit.valueOf(unitType.toUpperCase()),
+                "TemperatureUnit", unitType -> TemperatureUnit.valueOf(unitType.toUpperCase())
             );
             
     private IMeasurable getUnit(String measurementType, String unit){
@@ -79,86 +77,66 @@ public class QuantityMeasurementController {
     }
 
     @PostMapping("/equals")
-    public ResponseEntity<?> checkEquality(@Valid @RequestBody TwoQuantityRequestDTO requestDTOs){
+    public ResponseEntity<?> checkEquality(@Valid @RequestBody TwoQuantityRequestDTO requestDTOs) throws UnsupportedOperationsException{
         Quantity<?> quantity1 = quantityToDomain(requestDTOs.getQuantity1());
         Quantity<?> quantity2 = quantityToDomain(requestDTOs.getQuantity2());
-        try{
-            boolean result = service.checkEquality(quantity1, quantity2);
-            return ResponseEntity.ok(result);
-        }
-        catch(UnsupportedOperationsException | IllegalArgumentException e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+        boolean result = service.checkEquality(quantity1, quantity2);
+        return ResponseEntity.ok(result);
     }
     
     @PostMapping("/convert")
-    public ResponseEntity<?> convert(@RequestBody QuantityRequestDTO dto, @RequestParam String targetUnit) {
-        try {
-            Quantity<?> quantity = quantityToDomain(dto);
-            String measurementType = quantity.getUnit().getClass().getSimpleName();
-            IMeasurable target = getUnit( measurementType, targetUnit);
-            Quantity<?> converted = service.convert(quantity, target);
-            return ResponseEntity.ok(quantityToDTO(converted));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+    public ResponseEntity<?> convert(@RequestBody QuantityRequestDTO dto, @RequestParam String targetUnit) throws Exception{
+        Quantity<?> quantity = quantityToDomain(dto);
+        String measurementType = quantity.getUnit().getClass().getSimpleName();
+        IMeasurable target = getUnit( measurementType, targetUnit);
+        Quantity<?> converted = service.convert(quantity, target);
+        return ResponseEntity.ok(quantityToDTO(converted));
+        
     }
 
     @PostMapping("/add")
     public ResponseEntity<?> add(
                             @RequestBody TwoQuantityRequestDTO requestDTOs,
-                            @RequestParam(required = false) String targetUnit) {
+                            @RequestParam(required = false) String targetUnit) 
+                            throws UnsupportedOperationsException{
         Quantity<?> quantity1 = quantityToDomain(requestDTOs.getQuantity1());
         Quantity<?> quantity2 = quantityToDomain(requestDTOs.getQuantity2());
-        try {
-            Quantity<?> sum;
-            if (targetUnit == null) {
-                sum = service.add(quantity1, quantity2);
-            } else {
-                String measurementType = quantity1.getUnit().getClass().getSimpleName();
-                IMeasurable target = getUnit(measurementType, targetUnit);
-                sum = service.add(quantity1, quantity2, target);
-            }
-            return ResponseEntity.ok(quantityToDTO(sum));
-        } 
-        catch (UnsupportedOperationsException | IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+        Quantity<?> sum;
+        if (targetUnit == null) {
+            sum = service.add(quantity1, quantity2);
+        } else {
+            String measurementType = quantity1.getUnit().getClass().getSimpleName();
+            IMeasurable target = getUnit(measurementType, targetUnit);
+            sum = service.add(quantity1, quantity2, target);
         }
+        return ResponseEntity.ok(quantityToDTO(sum));
     }
 
     @PostMapping("/subtract")
     public ResponseEntity<?> subtract(
                             @RequestBody TwoQuantityRequestDTO requestDTOs,
-                            @RequestParam(required = false) String targetUnit) {
+                            @RequestParam(required = false) String targetUnit)
+                            throws UnsupportedOperationsException{
         Quantity<?> quantity1 = quantityToDomain(requestDTOs.getQuantity1());
         Quantity<?> quantity2 = quantityToDomain(requestDTOs.getQuantity2());
-        try {
-            Quantity<?> diff;
-            if (targetUnit == null) {
-                diff = service.subtract(quantity1, quantity2);
-            } else {
-                String measurementType = quantity1.getUnit().getClass().getSimpleName();
-                IMeasurable target = getUnit(measurementType, targetUnit);
-                diff = service.subtract(quantity1, quantity2, target);
-            }
-            return ResponseEntity.ok(quantityToDTO(diff));
-        } 
-        catch (UnsupportedOperationsException | IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+        Quantity<?> diff;
+        if (targetUnit == null) {
+            diff = service.subtract(quantity1, quantity2);
+        } else {
+            String measurementType = quantity1.getUnit().getClass().getSimpleName();
+            IMeasurable target = getUnit(measurementType, targetUnit);
+            diff = service.subtract(quantity1, quantity2, target);
         }
+        return ResponseEntity.ok(quantityToDTO(diff));
+        
     }
 
     @PostMapping("/divide")
-    public ResponseEntity<?> divide(@RequestBody TwoQuantityRequestDTO requestDTOs) {
-        try{
-            Quantity<?> quantity1 = quantityToDomain(requestDTOs.getQuantity1());
-            Quantity<?> quantity2 = quantityToDomain(requestDTOs.getQuantity2());
-            double ratio = service.divide(quantity1, quantity2);
-            return ResponseEntity.ok(ratio);
-        }
-        catch(UnsupportedOperationsException | ArithmeticException | IllegalArgumentException e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+    public ResponseEntity<?> divide(@RequestBody TwoQuantityRequestDTO requestDTOs) throws UnsupportedOperationsException{
+        Quantity<?> quantity1 = quantityToDomain(requestDTOs.getQuantity1());
+        Quantity<?> quantity2 = quantityToDomain(requestDTOs.getQuantity2());
+        double ratio = service.divide(quantity1, quantity2);
+        return ResponseEntity.ok(ratio);
     }
     
     @GetMapping("/quantityHistory")
