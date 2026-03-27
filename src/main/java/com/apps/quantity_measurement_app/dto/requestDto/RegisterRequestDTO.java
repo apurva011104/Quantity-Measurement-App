@@ -1,0 +1,21 @@
+package com.apps.quantity_measurement_app.dto.requestDto;
+
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RegisterRequestDTO {
+
+    @NotNull(message="Email cannot be null")
+    private String email;
+
+    @NotNull(message="Name cannot be null")
+    private String name;
+
+    @NotNull(message="Password cannot be null")
+    private String password;
+}
