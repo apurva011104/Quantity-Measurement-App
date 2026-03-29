@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.apps.quantity_measurement_app.dto.requestDto.LoginRequestDTO;
 import com.apps.quantity_measurement_app.dto.requestDto.RegisterRequestDTO;
+import com.apps.quantity_measurement_app.dto.responseDto.AuthorizationResponseDTO;
 import com.apps.quantity_measurement_app.entity.User;
 import com.apps.quantity_measurement_app.exception.InvalidUserCredentialsException;
 import com.apps.quantity_measurement_app.exception.UserAlreadyExistsException;
@@ -27,7 +28,7 @@ public class AuthServiceImpl implements AuthService{
     private final TokenBlacklist tokenBlacklist;
 
     @Override
-    public String register(RegisterRequestDTO registerRequestDTO) throws UserAlreadyExistsException, InvalidUserCredentialsException {
+    public AuthorizationResponseDTO register(RegisterRequestDTO registerRequestDTO) throws UserAlreadyExistsException, InvalidUserCredentialsException {
         
         String email = registerRequestDTO.getEmail();
         String name = registerRequestDTO.getName();
@@ -45,11 +46,15 @@ public class AuthServiceImpl implements AuthService{
 
         userRepository.save(user);
 
-        return jwtUtil.generateToken(email);
+        String token = jwtUtil.generateToken(email);
+
+        AuthorizationResponseDTO response = new AuthorizationResponseDTO(name, email, token);
+
+        return response;
     }
 
     @Override
-    public String login(LoginRequestDTO loginRequestDTO) throws InvalidUserCredentialsException {
+    public AuthorizationResponseDTO login(LoginRequestDTO loginRequestDTO) throws InvalidUserCredentialsException {
         User user = userRepository.findByEmail(loginRequestDTO.getEmail())
                                     .orElseThrow(()->new InvalidUserCredentialsException("Invalid user credentials"));
         
@@ -60,7 +65,11 @@ public class AuthServiceImpl implements AuthService{
             throw new InvalidUserCredentialsException("Invalid user credentials");
         }
 
-        return jwtUtil.generateToken(user.getEmail());
+        String token = jwtUtil.generateToken(user.getEmail());
+
+        AuthorizationResponseDTO response = new AuthorizationResponseDTO(user.getName(), user.getEmail(), token);
+
+        return response;
     }
 
     @Override 

@@ -22,13 +22,9 @@ public interface QuantityService {
 
     double divide(Quantity<?> quantity1, Quantity<?> quantity2) throws UnsupportedOperationsException;
 
-    List<Quantity<?>> getAllHistory();
-
-    List<Quantity<?>> getByMeasurementType(String measurementType);
-
     List<OperationHistory> getOperationHistory();
 
     List<OperationHistory> getOperationHistory(String operationType);
 
-    void deleteAll();
+    void deleteOperationHistory();
 }

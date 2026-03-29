@@ -28,25 +28,28 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
                                         HttpServletResponse response, 
                                         Authentication authentication) 
                                         throws IOException, ServletException{
-        
+                                        
         OAuth2User oauthUser = (OAuth2User) authentication.getPrincipal();
-
+                                        
         String email = oauthUser.getAttribute("email");
         String name = oauthUser.getAttribute("name");
-
-        userRepository.findByEmail(email).orElseGet(()->{
+                                        
+        userRepository.findByEmail(email).orElseGet(() -> {
             User user = new User();
             user.setEmail(email);
             user.setName(name);
             user.setProvider(AuthProvider.GOOGLE);
             return userRepository.save(user);
         });
-
+    
         String token = jwtUtil.generateToken(email);
-
-        response.setContentType("application/json");
-        response.getWriter().write("{\"token\": \"" + token + "\"}");
-
+    
+        String redirectUrl = "http://127.0.0.1:5500/pages/dashboard.html"
+                + "?token=" + token
+                + "&name=" + name
+                + "&email=" + email;
+    
+        response.sendRedirect(redirectUrl);
     }
 
     

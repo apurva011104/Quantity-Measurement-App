@@ -86,22 +86,6 @@ public class QuantityMeasurementController {
         double ratio = service.divide(quantity1, quantity2);
         return ResponseEntity.ok(ratio);
     }
-    
-    @GetMapping("/quantityHistory")
-    public ResponseEntity<?> getQuantityHistory() {
-        return ResponseEntity.ok(
-                    service.getAllHistory().stream()
-                           .map(QuantityMapper::domainToDto)
-                           .toList());
-    }
-    
-    @GetMapping("/quantityHistory/{measurementType}")
-    public ResponseEntity<?> getQuantityHistoryByType(@PathVariable String measurementType) {
-        return ResponseEntity.ok(
-                service.getByMeasurementType(measurementType).stream()
-                                .map(QuantityMapper::domainToDto)
-                                .toList());
-    }
 
     @GetMapping("/operationsHistory")
     public ResponseEntity<?> getOperationHistory() {
@@ -120,12 +104,10 @@ public class QuantityMeasurementController {
                         .map(OperationHistoryMapper::domainToDTO)
                         .toList());
     }
-    
-    
 
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteAll() {
-        service.deleteAll();
+        service.deleteOperationHistory();
         return ResponseEntity.ok("All quantities record deleted");
     }
     

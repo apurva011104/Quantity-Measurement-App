@@ -3,18 +3,17 @@ package com.apps.quantity_measurement_app.service.serviceImpl;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
-import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.apps.quantity_measurement_app.domain.OperationHistory;
 import com.apps.quantity_measurement_app.domain.Quantity;
+import com.apps.quantity_measurement_app.entity.User;
 import com.apps.quantity_measurement_app.exception.UnsupportedOperationsException;
 import com.apps.quantity_measurement_app.mapper.OperationHistoryMapper;
-import com.apps.quantity_measurement_app.mapper.QuantityMapper;
 import com.apps.quantity_measurement_app.repository.OperationHistoryRepository;
-import com.apps.quantity_measurement_app.repository.QuantityRepository;
+import com.apps.quantity_measurement_app.repository.UserRepository;
 import com.apps.quantity_measurement_app.service.QuantityService;
 import com.apps.quantity_measurement_app.units.IMeasurable;
 import com.apps.quantity_measurement_app.units.LengthUnit;
@@ -24,40 +23,34 @@ import com.apps.quantity_measurement_app.units.WeightUnit;
 import com.apps.quantity_measurement_app.util.OperationType;
 
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 
 @Service
 @Transactional
+@AllArgsConstructor
 public class QuantityServiceImpl implements QuantityService {
 
-    private final QuantityRepository quantityRepository;
     private final OperationHistoryRepository operationHistoryRepository;
+    private final UserRepository userRepository;
     
-    public QuantityServiceImpl(QuantityRepository quantityRepository , OperationHistoryRepository operationHistoryRepository) {
-        this.quantityRepository = quantityRepository;
-        this.operationHistoryRepository = operationHistoryRepository;
-    }
 
-    private void saveQuantities(Quantity<?>... quantities) {
-        for (Quantity<?> q : quantities) {
-            if (q == null) {
-                throw new IllegalArgumentException("Quantity cannot be null");
-            }
-            try {
-                quantityRepository.save(QuantityMapper.domainToEntity(q));
-                System.out.println("Saving: " + q);
-            } 
-            catch (DataIntegrityViolationException e) {
-                System.out.println("Duplicate data entry");
-            }
-                
-        }
+    private User getCurrentUser() {
+        String email = SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getName();
+
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
     private void saveOperationHistory(OperationHistory history){
         if(history==null){
             throw new IllegalArgumentException("Operation history cannot be null");
         }
-        operationHistoryRepository.save(OperationHistoryMapper.domainToEntity(history));
+        User user = getCurrentUser();
+        var entity = OperationHistoryMapper.domainToEntity(history);
+        entity.setUser(user);
+        operationHistoryRepository.save(entity);
         System.out.println("Operation History saved successfully");
     }
 
@@ -97,7 +90,6 @@ public class QuantityServiceImpl implements QuantityService {
             throw new UnsupportedOperationsException("Different measurement types");
         }
         boolean result = quantity1.equals(quantity2);
-        saveQuantities(quantity1, quantity2);
         OperationHistory history = new OperationHistory(
                                         OperationType.COMPARE,
                                         quantity1.toString(),
@@ -114,7 +106,6 @@ public class QuantityServiceImpl implements QuantityService {
         String measurementType = quantity.getUnit().getClass().getSimpleName();
         IMeasurable target = getUnit(measurementType, targetUnit);
         Quantity<?> result = quantity.convertTo(target);
-        saveQuantities(quantity);
         OperationHistory history = new OperationHistory(
                                         OperationType.CONVERT,
                                         quantity.toString(),
@@ -129,7 +120,6 @@ public class QuantityServiceImpl implements QuantityService {
             throws UnsupportedOperationsException {
         validateQuantities(quantity1, quantity2);
         Quantity<?> result = quantity1.add(quantity2);
-        saveQuantities(quantity1, quantity2);
         OperationHistory history = new OperationHistory(
                                         OperationType.ADD,
                                         quantity1.toString(),
@@ -146,7 +136,6 @@ public class QuantityServiceImpl implements QuantityService {
         String measurementType = quantity1.getUnit().getClass().getSimpleName();
         IMeasurable target = getUnit( measurementType, targetUnit);
         Quantity<?> result = quantity1.add(quantity2, target);
-        saveQuantities(quantity1, quantity2);
         OperationHistory history = new OperationHistory(
                                         OperationType.ADD,
                                         quantity1.toString(),
@@ -161,7 +150,6 @@ public class QuantityServiceImpl implements QuantityService {
             throws UnsupportedOperationsException {
         validateQuantities(quantity1, quantity2);
         Quantity<?> result = quantity1.subtract(quantity2);
-        saveQuantities(quantity1, quantity2);
         OperationHistory history = new OperationHistory(
                                         OperationType.SUBTRACT,
                                         quantity1.toString(),
@@ -178,7 +166,6 @@ public class QuantityServiceImpl implements QuantityService {
         String measurementType = quantity1.getUnit().getClass().getSimpleName();
         IMeasurable target = getUnit( measurementType, targetUnit);
         Quantity<?> result = quantity1.subtract(quantity2, target);
-        saveQuantities(quantity1, quantity2);
         OperationHistory history = new OperationHistory(
                                         OperationType.SUBTRACT,
                                         quantity1.toString(),
@@ -194,7 +181,6 @@ public class QuantityServiceImpl implements QuantityService {
             throws UnsupportedOperationsException {
         validateQuantities(quantity1, quantity2);
         double ratio = Math.round(quantity1.divide(quantity2) * 100.0) / 100.0;
-        saveQuantities(quantity1, quantity2);
         OperationHistory history = new OperationHistory(
                                         OperationType.DIVIDE,
                                         quantity1.toString(),
@@ -205,40 +191,32 @@ public class QuantityServiceImpl implements QuantityService {
     }
 
     @Override
-    public List<Quantity<?>> getAllHistory() {
-        return quantityRepository.findAll()
-                .stream()
-                .map(QuantityMapper::entityToDomain)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public List<Quantity<?>> getByMeasurementType(String measurementType) {
-        return quantityRepository.findByMeasurementTypeIgnoreCase(measurementType)
-                .stream()
-                .map(QuantityMapper::entityToDomain)
-                .collect(Collectors.toList());
-    }
-
-    @Override
     public List<OperationHistory> getOperationHistory(){
-        return  operationHistoryRepository.findAll()
-                        .stream()
-                        .map(OperationHistoryMapper::entityToDomain)
-                        .toList();
+
+        User user = getCurrentUser();
+
+        return operationHistoryRepository.findByUser(user)
+                .stream()
+                .map(OperationHistoryMapper::entityToDomain)
+                .toList();
     }
 
     @Override
     public List<OperationHistory> getOperationHistory(String operationType){
-        return  operationHistoryRepository.findByOperationTypeIgnoreCase(operationType)
-                        .stream()
-                        .map(OperationHistoryMapper::entityToDomain)
-                        .toList();
+
+        User user = getCurrentUser();
+
+        return operationHistoryRepository
+                .findByUserAndOperationTypeIgnoreCase(user, operationType)
+                .stream()
+                .map(OperationHistoryMapper::entityToDomain)
+                .toList();
     }
 
+
     @Override
-    public void deleteAll() {
-        quantityRepository.deleteAll();
-        operationHistoryRepository.deleteAll();
+    public void deleteOperationHistory() {
+        User user = getCurrentUser();
+        operationHistoryRepository.deleteByUser(user);
     }
 }

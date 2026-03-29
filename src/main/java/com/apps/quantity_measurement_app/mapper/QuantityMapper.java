@@ -27,7 +27,7 @@ public final class QuantityMapper {
 
     public static Quantity<?> dtoToDomain(QuantityRequestDTO dto){
         QuantityEntity entity = new QuantityEntity(
-                                dto.getValue(),
+                                dto.getQuantityValue(),
                                 dto.getUnit(),
                                 dto.getMeasurementType());
 

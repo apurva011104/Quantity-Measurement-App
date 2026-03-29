@@ -2,6 +2,7 @@ package com.apps.quantity_measurement_app.controller;
 
 import java.io.IOException;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.apps.quantity_measurement_app.dto.requestDto.LoginRequestDTO;
 import com.apps.quantity_measurement_app.dto.requestDto.RegisterRequestDTO;
+import com.apps.quantity_measurement_app.dto.responseDto.AuthorizationResponseDTO;
 import com.apps.quantity_measurement_app.exception.InvalidUserCredentialsException;
 import com.apps.quantity_measurement_app.exception.UserAlreadyExistsException;
 import com.apps.quantity_measurement_app.service.AuthService;
@@ -34,13 +36,15 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid @RequestBody RegisterRequestDTO registerRequestDTO) throws UserAlreadyExistsException, InvalidUserCredentialsException {
-        return authService.register(registerRequestDTO);
+    public ResponseEntity<AuthorizationResponseDTO>  register(@Valid @RequestBody RegisterRequestDTO registerRequestDTO) throws UserAlreadyExistsException, InvalidUserCredentialsException {
+        AuthorizationResponseDTO response = authService.register(registerRequestDTO);
+        return ResponseEntity.ok(response);
     }
     
     @PostMapping("/login")
-    public String login(@Valid @RequestBody LoginRequestDTO loginRequestDTO) throws InvalidUserCredentialsException{
-        return authService.login(loginRequestDTO);
+    public ResponseEntity<AuthorizationResponseDTO> login(@Valid @RequestBody LoginRequestDTO loginRequestDTO) throws InvalidUserCredentialsException{
+        AuthorizationResponseDTO response = authService.login(loginRequestDTO);
+        return ResponseEntity.ok(response);
     }
     
     @PostMapping("/logout")
