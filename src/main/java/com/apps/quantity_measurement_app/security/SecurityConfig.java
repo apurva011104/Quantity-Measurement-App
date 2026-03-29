@@ -64,7 +64,13 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://127.0.0.1:5500");
+
+        // ✅ ADD THIS
+        config.addAllowedOrigin("http://localhost:4200");
+
+        // (optional but safe)
+        config.addAllowedOrigin("http://127.0.0.1:4200");
+
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 

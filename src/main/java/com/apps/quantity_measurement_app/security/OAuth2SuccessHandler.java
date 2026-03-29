@@ -44,7 +44,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
     
         String token = jwtUtil.generateToken(email);
     
-        String redirectUrl = "http://127.0.0.1:5500/pages/dashboard.html"
+        String redirectUrl = "http://localhost:4200/dashboard"
                 + "?token=" + token
                 + "&name=" + name
                 + "&email=" + email;
