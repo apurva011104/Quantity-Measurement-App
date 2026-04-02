@@ -1,14 +1,12 @@
-# Use official Java image
-FROM eclipse-temurin:21-jdk
+# Use Maven + Java image (no mvnw needed)
+FROM maven:3.9.9-eclipse-temurin-21
 
-# Set working directory
 WORKDIR /app
 
-# Copy project files
 COPY . .
 
-# Build the project
-RUN ./mvnw clean package -DskipTests
+# Build project
+RUN mvn clean package -DskipTests
 
-# Run the jar file
+# Run app
 CMD ["java", "-jar", "target/*.jar"]
