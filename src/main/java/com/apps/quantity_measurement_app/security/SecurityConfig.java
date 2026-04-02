@@ -40,7 +40,7 @@ public class SecurityConfig {
             .headers(headers -> headers.frameOptions(frame -> frame.disable()))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/error", "/auth/**", "/oauth2/**", "/login/**", "/h2-console/**")
+                .requestMatchers("/", "/error", "/auth/**", "/oauth2/**", "/login/**", "/h2-console/**", "/v3/api-docs/**", "/swagger-ui/**","/swagger-ui.html")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
