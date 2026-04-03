@@ -1,0 +1,87 @@
+package com.apps.authservice.service.serviceImpl;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.apps.authservice.dto.requestDto.LoginRequestDTO;
+import com.apps.authservice.dto.requestDto.RegisterRequestDTO;
+import com.apps.authservice.dto.responseDto.AuthorizationResponseDTO;
+import com.apps.authservice.entity.User;
+import com.apps.authservice.exception.InvalidUserCredentialsException;
+import com.apps.authservice.exception.UserAlreadyExistsException;
+import com.apps.authservice.repository.UserRepository;
+import com.apps.authservice.security.JwtUtil;
+import com.apps.authservice.security.TokenBlacklist;
+import com.apps.authservice.service.AuthService;
+import com.apps.authservice.util.AuthProvider;
+
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+@Service
+public class AuthServiceImpl implements AuthService{
+    
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtUtil jwtUtil;
+    private final TokenBlacklist tokenBlacklist;
+
+    @Override
+    public AuthorizationResponseDTO register(RegisterRequestDTO registerRequestDTO) throws UserAlreadyExistsException, InvalidUserCredentialsException {
+        
+        String email = registerRequestDTO.getEmail();
+        String name = registerRequestDTO.getName();
+        String password = registerRequestDTO.getPassword();
+
+        if(userRepository.findByEmail(email).isPresent()){
+            throw new UserAlreadyExistsException("User already exists with this email");
+        }
+
+        User user = new User();
+        user.setEmail(email);
+        user.setName(name);
+        user.setPassword(passwordEncoder.encode(password));
+        user.setProvider(AuthProvider.LOCAL);
+
+        userRepository.save(user);
+
+        String token = jwtUtil.generateToken(email);
+
+        AuthorizationResponseDTO response = new AuthorizationResponseDTO(name, email, token);
+
+        return response;
+    }
+
+    @Override
+    public AuthorizationResponseDTO login(LoginRequestDTO loginRequestDTO) throws InvalidUserCredentialsException {
+        User user = userRepository.findByEmail(loginRequestDTO.getEmail())
+                                    .orElseThrow(()->new InvalidUserCredentialsException("Invalid user credentials"));
+        
+        if(user.getProvider()!=AuthProvider.LOCAL){
+            throw new InvalidUserCredentialsException("Please login using google");
+        }
+        if(user.getPassword().isEmpty() || !passwordEncoder.matches(loginRequestDTO.getPassword(), user.getPassword())){
+            throw new InvalidUserCredentialsException("Invalid user credentials");
+        }
+
+        String token = jwtUtil.generateToken(user.getEmail());
+
+        AuthorizationResponseDTO response = new AuthorizationResponseDTO(user.getName(), user.getEmail(), token);
+
+        return response;
+    }
+
+    @Override 
+    public String logout(HttpServletRequest request){
+        String authHeader = request.getHeader("Authorization");
+
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            String token = authHeader.substring(7);
+            tokenBlacklist.blacklistToken(token);
+        }
+
+        return "Logged out successfully";
+
+    }
+}
