@@ -1,5 +1,7 @@
 package com.apps.quantity_measurement_app.security;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -64,15 +66,13 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowCredentials(true);
-
-        // ✅ ADD THIS
-        config.addAllowedOrigin("http://localhost:4200");
-
-        // (optional but safe)
-        config.addAllowedOrigin("http://127.0.0.1:4200");
-
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
+        config.setAllowedOrigins(List.of(
+            "http://localhost:4200",
+            "http://127.0.0.1:4200",
+            "https://quantity-measurement-app-ui.onrender.com"
+        ));
+        config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
